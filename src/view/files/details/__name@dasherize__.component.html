@@ -1,0 +1,31 @@
+<% if(ui.toString() === '"material"'){ %>
+<mat-card class="details-card">
+    <mat-card-header>
+        <mat-card-title i18n="<%= classify(singularize(name)) %> header|<%= classify(singularize(name)) %> name@@<%= camelize(singularize(name)) %>Header"><%= classify(singularize(name)) %> Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <% parameters.forEach(function(parameter){ %>
+            <mat-list-item>
+                <strong><%= parameter %>: </strong> {{selected<%= classify(singularize(vo)) %>.<%= parameter %>}}
+            </mat-list-item>
+            <% }) %>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+<% } else if(ui.toString() === '"bootstrap"'){ %>
+<h2 i18n="<%= classify(singularize(name)) %> header|<%= classify(singularize(name)) %> name@@<%= camelize(singularize(name)) %>Header"><%= classify(singularize(name)) %> Details</h2>
+
+<% parameters.forEach(function(parameter){ %>
+<div>
+    <label><%= parameter %>: </label> {{selected<%= classify(singularize(vo)) %>.<%= parameter %>}}
+</div>
+<% }) %>
+<% } else { %>
+<h2 i18n="<%= classify(singularize(name)) %> header|<%= classify(singularize(name)) %> name@@<%= camelize(singularize(name)) %>Header"><%= classify(singularize(name)) %> Details</h2>
+<% parameters.forEach(function(parameter){ %>
+<div>
+    <label><%= parameter %>: </label> {{selected<%= classify(singularize(vo)) %>.<%= parameter %>}}
+</div>
+<% }) %>
+<% } %>

@@ -1,0 +1,43 @@
+<% if(ui.toString() === '"material"'){ %>
+<mat-card class="form-card">
+    <mat-card-header>
+        <mat-card-title
+                i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <a mat-list-item href="#" *ngFor="let item of list">
+                <% parameters.forEach(function(parameter){ %>
+                <p matLine>
+                    <span> <%= parameter %>: </span>
+                    <span> -- {{item.<%= parameter %>}} </span><br/>
+                </p>
+                <% }) %>
+            </a>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+<% } else if(ui.toString() === '"bootstrap"'){ %>
+<h2 i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></h2>
+<div class="list-group">
+    <a *ngFor="let item of list" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <p class="mb-1">
+            <% parameters.forEach(function(parameter){ %>
+            <strong><%= parameter %>: </strong> {{item.<%= parameter %>}}
+            <% }) %>
+        </p>
+    </a>
+</div>
+<% } else { %>
+<h2 i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></h2>
+<ul>
+    <li *ngFor="let item of list">
+        <p>
+            <% parameters.forEach(function(parameter){ %>
+            <strong><%= parameter %>: </strong> {{item.<%= parameter %>}}
+            <% }) %>
+        </p>
+    </li>
+</ul>
+<% } %>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="appHeader" datatype="html">
+        <source>Welcome to app!</source>
+        <target>Welcome to app!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">main app name</note>
+        <note priority="1" from="meaning">app header</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

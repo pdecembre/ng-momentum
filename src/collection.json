@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Takes a new angular application and scaffolds out the project fully.",
+      "factory": "./scaffold/index#scaffold",
+      "schema": "./scaffold/schema.json",
+      "aliases": [
+        "scaffold"
+      ]
+    },
+    "svc": {
+      "description": "Creates a full service.",
+      "factory": "./service/index#service",
+      "schema": "./service/schema.json"
+    },
+    "view": {
+      "aliases": [
+        "vi"
+      ],
+      "description": "Creates a full view with one of multiple templates.",
+      "factory": "./view/index#view",
+      "schema": "./view/schema.json"
+    },
+    "vo": {
+      "description": "Creates a vo.",
+      "factory": "./vo/index#vo",
+      "schema": "./vo/schema.json"
+    },
+    "model": {
+      "aliases": [
+        "mo"
+      ],
+      "description": "Creates a full model to manage either a set of objects or a specific object.",
+      "factory": "./model/index#model",
+      "schema": "./model/schema.json"
+    },
+    "crud": {
+      "description": "Creates a full CRUD operation.",
+      "factory": "./crud/index#crud",
+      "schema": "./crud/schema.json"
+    },
+    "pwa": {
+      "factory": "../node_modules/@angular/pwa/pwa",
+      "description": "Update an application with PWA defaults.",
+      "schema": "../node_modules/@angular/pwa/pwa/schema.json",
+      "private": true,
+      "hidden": true
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "CrudSchema",
+  "title": "Creates a full service.",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the interface.",
+      "visible": false
+    },
+    "name": {
+      "description": "Specifies the name of the view.",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "description": "value object parameters.",
+      "visible": false
+    },
+    "spec": {
+      "type": "boolean",
+      "description": "Specifies if a spec file is generated.",
+      "default": true
+    },
+    "url": {
+      "description": "Url to get object parameters.",
+      "type": "string"
+    },
+    "style": {
+      "description": "The file extension to be used for style files.",
+      "type": "string"
+    },
+    "flat": {
+      "type": "boolean",
+      "description": "Flag to indicate if a dir is created.",
+      "default": false
+    },
+    "obj": {
+      "description": "Object string for the value object.",
+      "type": "string",
+      "default": "{\"id\":\"number\", \"title\":\"string\"}"
+    },
+    "skipImport": {
+      "type": "boolean",
+      "description": "Flag to skip the module import.",
+      "default": false
+    },
+    "export": {
+      "type": "boolean",
+      "default": false,
+      "description": "Specifies if declaring module exports the directive."
+    },
+    "eager": {
+      "type": "boolean",
+      "description": "Flag to determine if the view should be eager loaded vs lazy loaded.",
+      "default": false
+    },
+    "vo": {
+      "description": "Specifies the vo to be created with this object. Overrides the default naming.",
+      "type": "string"
+    },
+    "voPath": {
+      "description": "Specifies the vo path.",
+      "type": "string"
+    },
+    "skipVo": {
+      "type": "boolean",
+      "description": "Specifies if we should skip generating vo files.",
+      "default": false
+    },
+    "service": {
+      "description": "Specifies the service to be created with this object. Overrides the default naming.",
+      "type": "string"
+    },
+    "servicePath": {
+      "description": "Specifies the service path.",
+      "type": "string"
+    },
+    "skipService": {
+      "type": "boolean",
+      "description": "Specifies if we should skip generating service files.",
+      "default": false
+    },
+    "view": {
+      "description": "Specifies the view to be created with this object. Overrides the default naming.",
+      "type": "string"
+    },
+    "viewPath": {
+      "description": "Specifies the view path.",
+      "type": "string"
+    },
+    "basePath": {
+      "description": "Specifies the base path.",
+      "type": "string",
+      "default": ""
+    },
+    "skipView": {
+      "type": "boolean",
+      "description": "Specifies if we should skip generating view files.",
+      "default": false
+    },
+    "uiFramework": {
+      "type": "string",
+      "description": "UI Framework for view templates.",
+      "enum": [
+        "basic",
+        "material",
+        "bootstrap"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false
+}

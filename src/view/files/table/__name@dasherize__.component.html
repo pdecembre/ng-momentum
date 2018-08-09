@@ -1,0 +1,64 @@
+<% if(ui.toString() === '"material"'){ %>
+<mat-card class="table-card">
+    <mat-card-header>
+        <mat-card-title i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="table-container">
+            <table mat-table [dataSource]="list">
+                <% parameters.forEach(function(parameter){ %>
+                <ng-container matColumnDef="<%= parameter %>">
+                    <th mat-header-cell *matHeaderCellDef> <%= parameter %></th>
+                    <td mat-cell *matCellDef="let element"> {{element.<%= parameter %>}}</td>
+                </ng-container>
+                <% }) %>
+
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>
+<% } else if(ui.toString() === '"bootstrap"'){ %>
+<h2 i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></h2>
+
+<table class="table table-responsive">
+    <thead class="thead-inverse">
+    <tr>
+        <th>#</th>
+        <% parameters.forEach(function(parameter){ %>
+        <th><%= parameter %></th>
+        <% }) %>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <% parameters.forEach(function(parameter){ %>
+        <td>{{item.<%= parameter %>}}</td>
+        <% }) %>
+    </tr>
+    </tbody>
+</table>
+<% } else { %>
+<h2 i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <% parameters.forEach(function(parameter){ %>
+        <th><%= parameter %></th>
+        <% }) %>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list; let i = index">
+        <th>{{i+1}}</th>
+        <% parameters.forEach(function(parameter){ %>
+        <td>{{item.<%= parameter %>}}</td>
+        <% }) %>
+    </tr>
+    </tbody>
+</table>
+<% } %>
