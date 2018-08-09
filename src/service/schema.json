@@ -77,6 +77,11 @@
       "type": "string",
       "description": "Adds a suffix to your service endpoint.",
       "default": ""
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Flag to allow overwriting.",
+      "default": false
     }
   },
   "required": [

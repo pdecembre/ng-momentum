@@ -120,6 +120,11 @@
         "material",
         "bootstrap"
       ]
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Flag to allow overwriting.",
+      "default": false
     }
   },
   "required": [
