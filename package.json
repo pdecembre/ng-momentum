@@ -1,11 +1,10 @@
 {
   "name": "ng-momentum",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js",
-    "postinstall": "postinstall"
+    "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "repository": {
     "type": "git",
@@ -37,12 +36,8 @@
     "jasmine": "^2.99.0",
     "node-fetch": "^2.1.2",
     "pluralize": "^7.0.0",
-    "postinstall": "^0.4.1",
     "sinon": "^6.1.5",
     "typescript": "~2.7.2",
     "zone.js": "^0.8.26"
-  },
-  "postinstall": {
-    "node_modules/@angular/pwa/pwa": "link node_modules/@angular/pwa/pwa"
   }
 }

@@ -153,10 +153,6 @@ function scaffold(options) {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : schematics_1.noop(),
-            options.includePwa ? schematics_1.schematic('pwa', {
-                title: options.name,
-                project: options.project
-            }) : schematics_1.noop(),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),

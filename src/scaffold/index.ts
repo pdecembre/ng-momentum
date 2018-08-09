@@ -10,7 +10,7 @@ import {
     url,
     SchematicsException,
     noop, move, SchematicContext,
-    schematic, externalSchematic
+    externalSchematic
 } from '@angular-devkit/schematics';
 import {getWorkspace} from '@schematics/angular/utility/config';
 import {Schema as ScaffoldOptions} from './schema';
@@ -180,10 +180,6 @@ export function scaffold(options: ScaffoldOptions): Rule {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : noop(),
-            options.includePwa ? schematic('pwa', {
-                title: options.name,
-                project: options.project
-            }) : noop(),
             mergeWith(apply(url('./files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),

@@ -39,13 +39,6 @@
       "description": "Creates a full CRUD operation.",
       "factory": "./crud/index#crud",
       "schema": "./crud/schema.json"
-    },
-    "pwa": {
-      "factory": "../node_modules/@angular/pwa/pwa",
-      "description": "Update an application with PWA defaults.",
-      "schema": "../node_modules/@angular/pwa/pwa/schema.json",
-      "private": true,
-      "hidden": true
     }
   }
 }
