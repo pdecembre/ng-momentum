@@ -1,6 +1,6 @@
 {
   "name": "ng-momentum",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -43,6 +43,6 @@
     "zone.js": "^0.8.26"
   },
   "postinstall": {
-    "node_modules/@angular/pwa/pwa": "link node_modules/ng-momentum/node_modules/@angular/pwa/pwa"
+    "node_modules/ng-momentum/node_modules/@angular/pwa/pwa": "link node_modules/@angular/pwa/pwa"
   }
 }
