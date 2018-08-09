@@ -10,7 +10,7 @@ import {
     url,
     SchematicsException,
     noop, move, SchematicContext,
-    externalSchematic
+    externalSchematic, MergeStrategy
 } from '@angular-devkit/schematics';
 import {getWorkspace} from '@schematics/angular/utility/config';
 import {Schema as ScaffoldOptions} from './schema';
@@ -185,7 +185,7 @@ export function scaffold(options: ScaffoldOptions): Rule {
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
                 move(options.path),
-            ])),
+            ]), MergeStrategy.Overwrite),
             mergeWith(apply(url('./otherfiles'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),

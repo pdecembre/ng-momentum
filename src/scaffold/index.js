@@ -158,7 +158,7 @@ function scaffold(options) {
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
                 schematics_1.move(options.path),
-            ])),
+            ]), schematics_1.MergeStrategy.Overwrite),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./otherfiles'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
