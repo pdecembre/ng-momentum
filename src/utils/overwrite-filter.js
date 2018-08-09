@@ -19,4 +19,10 @@ function overwriteFilter(host, overwrite = false) {
     });
 }
 exports.overwriteFilter = overwriteFilter;
+function deleteFile(host, path) {
+    if (host.exists(path)) {
+        host.delete(path);
+    }
+}
+exports.deleteFile = deleteFile;
 //# sourceMappingURL=overwrite-filter.js.map

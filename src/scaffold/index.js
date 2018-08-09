@@ -8,6 +8,7 @@ const constants_1 = require("../utils/constants");
 const json_editor_1 = require("../utils/json-editor");
 const dependencies_1 = require("../utils/dependencies");
 const module_utils_1 = require("../utils/module-utils");
+const overwrite_filter_1 = require("../utils/overwrite-filter");
 var UI_FRAMEWORK_OPTION;
 (function (UI_FRAMEWORK_OPTION) {
     UI_FRAMEWORK_OPTION["BASIC"] = "basic";
@@ -116,6 +117,19 @@ function addOptionsToAngularJson() {
         return host;
     };
 }
+function overwriteFiles(path) {
+    return (host) => {
+        [
+            "app.component.html",
+            "app.component.spec.ts",
+            "app.component.ts",
+            "app.module.ts"
+        ].forEach(filename => {
+            overwrite_filter_1.deleteFile(host, core_1.normalize(path + "/" + filename));
+        });
+        return host;
+    };
+}
 function getProjectSelectedStyleExt(host, path) {
     const value = json_editor_1.readValueFromAngularJsonBuildProjects(host, 'styles');
     const srcPath = core_1.normalize(path + constants_1.constants.previousFolder).replace('/', '');
@@ -153,6 +167,7 @@ function scaffold(options) {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : schematics_1.noop(),
+            overwriteFiles(options.path),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),

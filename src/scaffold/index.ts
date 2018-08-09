@@ -23,6 +23,7 @@ import {
 } from '../utils/json-editor';
 import {NodeDependencyType, addPackageJsonDependency} from '../utils/dependencies';
 import {addImportToFile} from "../utils/module-utils";
+import {deleteFile} from "../utils/overwrite-filter";
 
 export enum UI_FRAMEWORK_OPTION {
     BASIC = 'basic',
@@ -135,7 +136,21 @@ function addOptionsToAngularJson() {
     }
 }
 
-function getProjectSelectedStyleExt(host: Tree, path:string):string {
+function overwriteFiles(path: string) {
+    return (host: Tree) => {
+        [
+            "app.component.html",
+            "app.component.spec.ts",
+            "app.component.ts",
+            "app.module.ts"
+        ].forEach(filename => {
+            deleteFile(host, normalize(path + "/" + filename));
+        });
+        return host;
+    };
+}
+
+function getProjectSelectedStyleExt(host: Tree, path: string): string {
     const value = readValueFromAngularJsonBuildProjects(host, 'styles');
     const srcPath = normalize(path + constants.previousFolder).replace('/', '');
     if (!value || !(Array.isArray(value))) {
@@ -180,6 +195,7 @@ export function scaffold(options: ScaffoldOptions): Rule {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : noop(),
+            overwriteFiles(options.path),
             mergeWith(apply(url('./files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),

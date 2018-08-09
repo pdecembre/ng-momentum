@@ -19,3 +19,9 @@ export function overwriteFilter(host: Tree, overwrite: boolean = false): Rule {
         return true;
     })
 }
+
+export function deleteFile(host: Tree, path: string) {
+    if (host.exists(path)) {
+        host.delete(path);
+    }
+}
