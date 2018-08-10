@@ -4,6 +4,9 @@ Momentum is an Angular Schematic developed by the Bottle Rocket Web Team to buil
 ## Getting Started
 For the initial scaffolding (required before anything else cause it sets everything where it needs to be).
 ```bash
+cd to/wherever/you/are/putting/your/project
+ng new my-momentum-project
+cd my-momentum-project/
 ng add ng-momentum
 ```
 If you want to include PWA features we recommend then running the next line.
@@ -73,6 +76,7 @@ Detailed description of options.
 | --service | string | Specifies the service to be created with this object. Overrides the default naming. | | (none) |
 | --servicePath | string | Specifies the service path. | | (none) |
 | --skipService | boolean | Specifies if we should skip generating service files. | true, false | false |
+| --template | string | Specifies template to create. | blank, form, table, list, details | blank |
 
 
 This builds a service for you to help you make calls to outside locations.
