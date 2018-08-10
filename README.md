@@ -18,6 +18,7 @@ Extra details below about each option.
 ## Helpful Commands
 To run the fun try these commands in your project.
 
+### Scaffold
 For the initial scaffolding (required before anything else cause it sets everything where it needs to be).
 ```bash
 ng g ng-momentum:scaffold --spec=false --force
@@ -33,6 +34,7 @@ Detailed description of options.
 | --includePwa | boolean | Include PWA features? | true, false | true |
 | --uiFramework | string | Which ui framework are you intending to use? This sets the default for future view templates. | material, bootstrap, basic | material |
 
+### VO
 For building a value object. You may want to do this, or let the other generators create objects as they see necessary and then your can just reference your value objects. Whatever, it's your application.
 
 ```bash
@@ -51,6 +53,7 @@ Detailed description of options.
 | --spec | boolean | Specifies if a spec file is generated. | true, false | true |
 
 
+### View
 This builds a view for you with the ui framework you previously set. You have a lot of options and this should he you get right to the important coding faster.
 
 ```bash
@@ -78,7 +81,7 @@ Detailed description of options.
 | --skipService | boolean | Specifies if we should skip generating service files. | true, false | false |
 | --template | string | Specifies template to create. | blank, form, table, list, details | blank |
 
-
+### Service
 This builds a service for you to help you make calls to outside locations.
 
 ```bash
@@ -102,6 +105,7 @@ Detailed description of options.
 | --endpoint | string | Specifies the service endpoint to hit. | | (none) |
 | --operations | string | Specifies the service strategy (clrud). | | clrud |
 
+### Model
 This builds either a basic model, a list model, or a 'selected object' model for you. Selected object models can load the model, create/update/save, and delete. Models are helpful if you have multiple components that are disconnected but need to share data/state. This can also be used to cache your data and have more control. You may not find them helpful at all though. So it is up to you.
 
 ```bash
@@ -126,6 +130,7 @@ Detailed description of options.
 | --skipService | boolean | Specifies if we should skip generating service files. | true, false | false |
 | --template | string | Model type for template specification. | blank, list, selected | blank |
 
+### CRUD
 This is the big one. You can just point this to an endpoint or state the object structure and it creates a full CRUD operation against your endpoint create for consumption. It's really cool.
 
 ```bash
