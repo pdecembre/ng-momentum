@@ -18,7 +18,8 @@
   ],
   "author": "🚀 The Bottle Rocket Web Team 🚀",
   "contributors": [
-    "Jonathan Campos <jonbcampos@gmail.com>"
+    "Jonathan Campos <jonbcampos@gmail.com>",
+    "Mike Cory <mikecory2@gmail.com>"
   ],
   "license": "Apache-2.0",
   "schematics": "./src/collection.json",
