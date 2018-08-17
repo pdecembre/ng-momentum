@@ -151,6 +151,10 @@ function getProjectSelectedStyleExt(host, path) {
 function scaffold(options) {
     return (host, context) => {
         setup_1.setupOptions(host, options);
+        const workspace = config_1.getWorkspace(host);
+        const project = workspace.projects[options.project];
+        const rootPath = project.root;
+        const sourcePath = core_1.join(project.root, 'src');
         const defaultOptions = {
             styleext: getProjectSelectedStyleExt(host, options.path),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
@@ -178,13 +182,13 @@ function scaffold(options) {
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
-                schematics_1.move(core_1.join(options.path, constants_1.constants.previousFolder)),
+                schematics_1.move(sourcePath),
             ]), schematics_1.MergeStrategy.Default),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./project-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
-                schematics_1.move(core_1.join(options.path, constants_1.constants.previousFolder, constants_1.constants.previousFolder)),
+                schematics_1.move(rootPath),
             ]), schematics_1.MergeStrategy.Default),
             options.uiFramework === UI_FRAMEWORK_OPTION.MATERIAL ? schematics_1.externalSchematic('@angular/material', 'material-shell', {
                 project: options.project

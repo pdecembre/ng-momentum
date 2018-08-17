@@ -176,6 +176,11 @@ export function scaffold(options: ScaffoldOptions): Rule {
     return (host: Tree, context: SchematicContext) => {
         setupOptions(host, options);
 
+        const workspace = getWorkspace(host);
+        const project = workspace.projects[options.project];
+        const rootPath = project.root as Path;
+        const sourcePath = join(project.root as Path, 'src');
+
         const defaultOptions = {
             styleext: getProjectSelectedStyleExt(host, options.path),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
@@ -209,13 +214,13 @@ export function scaffold(options: ScaffoldOptions): Rule {
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
-                move(join(options.path, constants.previousFolder)),
+                move(sourcePath),
             ]), MergeStrategy.Default),
             mergeWith(apply(url('./project-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
-                move(join(options.path, constants.previousFolder, constants.previousFolder)),
+                move(rootPath),
             ]), MergeStrategy.Default),
             options.uiFramework === UI_FRAMEWORK_OPTION.MATERIAL ? externalSchematic('@angular/material', 'material-shell', {
                 project: options.project
