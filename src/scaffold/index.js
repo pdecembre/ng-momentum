@@ -155,6 +155,11 @@ function scaffold(options) {
         const project = workspace.projects[options.project];
         const rootPath = project.root;
         const sourcePath = core_1.join(project.root, 'src');
+        const appPath = core_1.join(sourcePath, 'app');
+        context.logger.info(`rootPath Path: ${rootPath}`);
+        context.logger.info(`Source Path: ${sourcePath}`);
+        context.logger.info(`appPath: ${appPath}`);
+        context.logger.info(`options.path: ${options.path}`);
         const defaultOptions = {
             styleext: getProjectSelectedStyleExt(host, options.path),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
@@ -171,12 +176,12 @@ function scaffold(options) {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : schematics_1.noop(),
-            overwriteFiles(options.path),
+            overwriteFiles(appPath),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
-                schematics_1.move(options.path),
+                schematics_1.move(appPath),
             ]), schematics_1.MergeStrategy.Overwrite),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./src-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
