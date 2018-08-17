@@ -125,14 +125,14 @@ function overwriteFiles(path) {
             "app.component.ts",
             "app.module.ts"
         ].forEach(filename => {
-            overwrite_filter_1.deleteFile(host, core_1.normalize(path + "/" + filename));
+            overwrite_filter_1.deleteFile(host, core_1.join(path, filename));
         });
         return host;
     };
 }
 function getProjectSelectedStyleExt(host, path) {
     const value = json_editor_1.readValueFromAngularJsonBuildProjects(host, 'styles');
-    const srcPath = core_1.normalize(path + constants_1.constants.previousFolder).replace('/', '');
+    const srcPath = core_1.join(path, constants_1.constants.previousFolder);
     if (!value || !(Array.isArray(value))) {
         return 'css';
     }
@@ -174,18 +174,18 @@ function scaffold(options) {
                 schematics_1.template(templateOptions),
                 schematics_1.move(options.path),
             ]), schematics_1.MergeStrategy.Overwrite),
-            schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./otherfiles'), [
+            schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./src-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
-                schematics_1.move(core_1.normalize(options.path + constants_1.constants.previousFolder)),
-            ])),
+                schematics_1.move(core_1.join(options.path, constants_1.constants.previousFolder)),
+            ]), schematics_1.MergeStrategy.Default),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./project-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
                 options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
-                schematics_1.move(core_1.normalize(options.path + constants_1.constants.previousFolder + constants_1.constants.previousFolder)),
-            ])),
+                schematics_1.move(core_1.join(options.path, constants_1.constants.previousFolder, constants_1.constants.previousFolder)),
+            ]), schematics_1.MergeStrategy.Default),
             options.uiFramework === UI_FRAMEWORK_OPTION.MATERIAL ? schematics_1.externalSchematic('@angular/material', 'material-shell', {
                 project: options.project
             }) : schematics_1.noop(),

@@ -1,3 +1,5 @@
+import {Path} from "@angular-devkit/core";
+
 export interface Schema {
     /**
      * Specifies the service to be created with this object.  Overrides the default naming.
@@ -6,7 +8,7 @@ export interface Schema {
     /**
      * Specifies the service path.
      */
-    servicePath?: string;
+    servicePath?: Path;
     /**
      * Skip service generation.
      */

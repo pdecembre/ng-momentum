@@ -1,16 +1,19 @@
-import {JsonArray, JsonObject, normalize, strings} from '@angular-devkit/core';
+import {join, JsonArray, JsonObject, Path, strings} from '@angular-devkit/core';
 import {
-    Rule,
-    Tree,
     apply,
     chain,
-    mergeWith,
-    template,
+    externalSchematic,
     filter,
-    url,
+    MergeStrategy,
+    mergeWith,
+    move,
+    noop,
+    Rule,
+    SchematicContext,
     SchematicsException,
-    noop, move, SchematicContext,
-    externalSchematic, MergeStrategy
+    template,
+    Tree,
+    url
 } from '@angular-devkit/schematics';
 import {getWorkspace} from '@schematics/angular/utility/config';
 import {Schema as ScaffoldOptions} from './schema';
@@ -21,7 +24,7 @@ import {
     addValueIntoAngularJsonBuildProjects,
     readValueFromAngularJsonBuildProjects
 } from '../utils/json-editor';
-import {NodeDependencyType, addPackageJsonDependency} from '../utils/dependencies';
+import {addPackageJsonDependency, NodeDependencyType} from '../utils/dependencies';
 import {addImportToFile} from "../utils/module-utils";
 import {deleteFile} from "../utils/overwrite-filter";
 
@@ -136,7 +139,7 @@ function addOptionsToAngularJson() {
     }
 }
 
-function overwriteFiles(path: string) {
+function overwriteFiles(path: Path) {
     return (host: Tree) => {
         [
             "app.component.html",
@@ -144,15 +147,15 @@ function overwriteFiles(path: string) {
             "app.component.ts",
             "app.module.ts"
         ].forEach(filename => {
-            deleteFile(host, normalize(path + "/" + filename));
+            deleteFile(host, join(path, filename));
         });
         return host;
     };
 }
 
-function getProjectSelectedStyleExt(host: Tree, path: string): string {
+function getProjectSelectedStyleExt(host: Tree, path: Path): string {
     const value = readValueFromAngularJsonBuildProjects(host, 'styles');
-    const srcPath = normalize(path + constants.previousFolder).replace('/', '');
+    const srcPath = join(path, constants.previousFolder);
     if (!value || !(Array.isArray(value))) {
         return 'css';
     }
@@ -202,18 +205,18 @@ export function scaffold(options: ScaffoldOptions): Rule {
                 template(templateOptions),
                 move(options.path),
             ]), MergeStrategy.Overwrite),
-            mergeWith(apply(url('./otherfiles'), [
+            mergeWith(apply(url('./src-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
-                move(normalize(options.path + constants.previousFolder)),
-            ])),
+                move(join(options.path, constants.previousFolder)),
+            ]), MergeStrategy.Default),
             mergeWith(apply(url('./project-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
-                move(normalize(options.path + constants.previousFolder + constants.previousFolder)),
-            ])),
+                move(join(options.path, constants.previousFolder, constants.previousFolder)),
+            ]), MergeStrategy.Default),
             options.uiFramework === UI_FRAMEWORK_OPTION.MATERIAL ? externalSchematic('@angular/material', 'material-shell', {
                 project: options.project
             }) : noop(),

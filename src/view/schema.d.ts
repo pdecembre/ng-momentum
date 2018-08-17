@@ -4,6 +4,7 @@ import {Schema as HasServiceOptions} from '../utils/has-service-schema';
 import {Schema as HasUiFrameworkOptions} from '../utils/has-ui-framework-schema';
 import {Schema as HasImportOptions} from '../utils/has-import-schema';
 import {VIEW_OPTION} from './index';
+import {Path} from "@angular-devkit/core";
 
 export interface Schema extends BaseOptions, HasVoOptions, HasServiceOptions, HasUiFrameworkOptions, HasImportOptions {
     /**
@@ -25,5 +26,5 @@ export interface Schema extends BaseOptions, HasVoOptions, HasServiceOptions, Ha
     /**
      * Specifies the base path.
      */
-    basePath?: string;
+    basePath?: Path;
 }

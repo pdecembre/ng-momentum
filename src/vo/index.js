@@ -14,8 +14,8 @@ function vo(options) {
     return (host, context) => {
         setup_1.setupOptions(host, options);
         const movePath = (options.flat) ?
-            core_1.normalize(options.path + constants_1.constants.voFolder) :
-            core_1.normalize(options.path + constants_1.constants.voFolder + '/' + strings_1.strings.dasherize(strings_1.strings.singularize(options.name)));
+            core_1.join(options.path, constants_1.constants.voFolder) :
+            core_1.join(options.path, constants_1.constants.voFolder, strings_1.strings.dasherize(strings_1.strings.singularize(options.name)));
         // get template source
         const templateSource = schematics_1.apply(schematics_1.url('./files'), [
             options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),

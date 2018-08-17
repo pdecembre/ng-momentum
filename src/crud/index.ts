@@ -12,7 +12,7 @@ import {
     schematic,
     MergeStrategy, SchematicContext
 } from '@angular-devkit/schematics';
-import {normalize} from '@angular-devkit/core';
+import {join, normalize} from '@angular-devkit/core';
 import {strings} from '../utils/strings';
 import {Schema as CrudOptions} from './schema';
 import {Schema as VoOptions} from '../vo/schema';
@@ -34,7 +34,7 @@ import {addImportToNgModule, addRouteToAppRoutingModule, findRoutingModuleFromOp
  */
 function buildProperties(options: CrudOptions, voOptions: VoOptions, templateOptions): Rule {
     return (host: Tree) => {
-        const observer = new Observable<Tree>((observer) => {
+        return new Observable<Tree>((observer) => {
             fetch(options.url)
                 .then(res => res.json())
                 .then(data => {
@@ -63,7 +63,6 @@ function buildProperties(options: CrudOptions, voOptions: VoOptions, templateOpt
                     observer.error(err);
                 });
         });
-        return observer;
     };
 }
 
@@ -122,18 +121,15 @@ export function crud(options: CrudOptions): Rule {
         }
 
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : normalize(options.path + constants.voFolder + '/' + strings.dasherize(strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : join(options.path, constants.voFolder, strings.dasherize(strings.singularize(options.vo)));
         options.service = (options.service) ? options.service : options.name;
-        options.servicePath = (options.servicePath) ? options.servicePath : normalize(options.path + constants.servicesFolder + '/' + strings.dasherize(strings.pluralize(options.service)));
-        options.servicePath = options.servicePath.replace('/', '');
+        options.servicePath = (options.servicePath) ? options.servicePath : join(options.path, constants.servicesFolder, strings.dasherize(strings.pluralize(options.service)));
         options.view = (options.view) ? options.view : options.name;
-        options.viewPath = (options.viewPath) ? options.viewPath : normalize(options.path + constants.viewsFolder + '/' + strings.dasherize(options.view));
-        options.viewPath = options.viewPath.replace('/', '');
-        options.basePath = (options.eager) ? strings.dasherize(strings.pluralize(options.name)) + '/' : '';
+        options.viewPath = (options.viewPath) ? options.viewPath : join(options.path, constants.viewsFolder, strings.dasherize(options.view));
+        options.basePath = (options.eager) ? normalize(strings.dasherize(strings.pluralize(options.name))) : normalize('');
         const movePath = (options.flat) ?
-            normalize(options.path + constants.viewsFolder) :
-            normalize(options.path + constants.viewsFolder + '/' + strings.dasherize(options.name));
+            join(options.path, constants.viewsFolder) :
+            join(options.path, constants.viewsFolder, strings.dasherize(options.name));
 
         const voOptions: VoOptions = {
             project: options.project,

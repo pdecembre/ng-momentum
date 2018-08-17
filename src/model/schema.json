@@ -75,11 +75,6 @@
       "type": "boolean",
       "description": "Specifies if we should skip generating service files.",
       "default": false
-    },
-    "force": {
-      "type": "boolean",
-      "description": "Flag to allow overwriting.",
-      "default": false
     }
   },
   "required": [

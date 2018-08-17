@@ -3,6 +3,7 @@ import {buildDefaultPath} from '@schematics/angular/utility/project';
 import {parseName} from '@schematics/angular/utility/parse-name';
 import {Tree} from '@angular-devkit/schematics';
 import {Schema} from './schema';
+import {normalize} from "@angular-devkit/core";
 
 export function setupOptions(host: Tree, options: Schema): Tree {
     const workspace = getWorkspace(host);
@@ -12,7 +13,7 @@ export function setupOptions(host: Tree, options: Schema): Tree {
     const project = workspace.projects[options.project];
 
     if (options.path === undefined) {
-        options.path = buildDefaultPath(project);
+        options.path = normalize(buildDefaultPath(project));
     }
 
     const parsedPath = parseName(options.path, options.name);

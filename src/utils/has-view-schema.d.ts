@@ -1,3 +1,5 @@
+import {Path} from "@angular-devkit/core";
+
 export interface Schema {
     /**
      * Specifies the view to be created with this object.  Overrides the default naming.
@@ -6,11 +8,11 @@ export interface Schema {
     /**
      * Specifies the view path.
      */
-    viewPath?: string;
+    viewPath?: Path;
     /**
      * Specifies the base path.
      */
-    basePath?: string;
+    basePath?: Path;
     /**
      * Skip view generation.
      */

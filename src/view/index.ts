@@ -13,7 +13,7 @@ import {
     schematic,
     MergeStrategy,
 } from '@angular-devkit/schematics';
-import {normalize} from '@angular-devkit/core';
+import {normalize, join} from '@angular-devkit/core';
 import {strings} from '../utils/strings';
 import {Schema as ViewOptions} from './schema';
 import {setupOptions} from '../utils/setup';
@@ -106,21 +106,19 @@ export function view(options: ViewOptions): Rule {
         }
 
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : normalize(options.path + constants.voFolder + '/' + strings.dasherize(strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : join(options.path, constants.voFolder, strings.dasherize(strings.singularize(options.vo)));
         options.service = (options.service) ? options.service : options.name;
-        options.servicePath = (options.servicePath) ? options.servicePath : normalize(options.path + constants.servicesFolder + '/' + strings.dasherize(strings.pluralize(options.service)));
-        options.servicePath = options.servicePath.replace('/', '');
+        options.servicePath = (options.servicePath) ? options.servicePath : join(options.path, constants.servicesFolder, strings.dasherize(strings.pluralize(options.service)));
         options.template = (VIEW_OPTIONS.indexOf(options.template) >= 0) ? options.template : VIEW_OPTION.Blank;
-        options.basePath = (options.eager) ? strings.dasherize(options.name) + '/' : '';
+        options.basePath = (options.eager) ? normalize(strings.dasherize(options.name)) : normalize('');
         // no vo or service necessary for blank model
         if (options.template === VIEW_OPTION.Blank) {
             options.skipService = true;
             options.skipVo = true;
         }
         const movePath = (options.flat) ?
-            normalize(options.path + constants.viewsFolder) :
-            normalize(options.path + constants.viewsFolder + '/' + strings.dasherize(options.name));
+            join(options.path, constants.viewsFolder) :
+            join(options.path, constants.viewsFolder, strings.dasherize(options.name));
 
         const templateOptions = {
             ...strings,
