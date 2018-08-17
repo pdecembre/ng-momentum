@@ -17,8 +17,7 @@ function service(options) {
         options.operations = (options.operations) ? options.operations : 'clrud';
         options.endpoint = (options.endpoint) ? options.endpoint : strings_1.strings.dasherize(options.name);
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : core_1.normalize(options.path + constants_1.constants.voFolder + '/' + strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : core_1.join(options.path, constants_1.constants.voFolder, strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
         // create vo options
         const voOptions = {
             project: options.project,
@@ -28,9 +27,8 @@ function service(options) {
             obj: options.obj
         };
         const movePath = (options.flat) ?
-            core_1.normalize(options.path + constants_1.constants.servicesFolder) :
-            core_1.normalize(options.path + constants_1.constants.servicesFolder + '/' +
-                strings_1.strings.dasherize(strings_1.strings.pluralize(options.name)));
+            core_1.join(options.path, constants_1.constants.servicesFolder) :
+            core_1.join(options.path, constants_1.constants.servicesFolder, strings_1.strings.dasherize(strings_1.strings.pluralize(options.name)));
         // get template source
         const templateSource = schematics_1.apply(schematics_1.url('./files'), [
             options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),

@@ -13,7 +13,7 @@ import {
     schematic,
     MergeStrategy,
 } from '@angular-devkit/schematics';
-import {normalize} from '@angular-devkit/core';
+import {join} from '@angular-devkit/core';
 import {strings} from '../utils/strings';
 import {Schema as ModelOptions} from './schema';
 import {Schema as VoOptions} from '../vo/schema';
@@ -39,11 +39,9 @@ export function model(options: ModelOptions): Rule {
         setupOptions(host, options);
         // defaults
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : normalize(options.path + constants.voFolder + '/' + strings.dasherize(strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : join(options.path, constants.voFolder, strings.dasherize(strings.singularize(options.vo)));
         options.service = (options.service) ? options.service : options.name;
-        options.servicePath = (options.servicePath) ? options.servicePath : normalize(options.path + constants.servicesFolder + '/' + strings.dasherize(strings.pluralize(options.service)));
-        options.servicePath = options.servicePath.replace('/', '');
+        options.servicePath = (options.servicePath) ? options.servicePath : join(options.path, constants.servicesFolder, strings.dasherize(strings.pluralize(options.service)));
         options.template = (MODEL_OPTIONS.indexOf(options.template) >= 0) ? options.template : MODEL_OPTION.Blank;
         // no vo or service necessary for blank model
         if (options.template === MODEL_OPTION.Blank) {
@@ -68,19 +66,17 @@ export function model(options: ModelOptions): Rule {
         };
 
         let movePath = (options.flat) ?
-            normalize(options.path + constants.modelsFolder) :
-            normalize(options.path + constants.modelsFolder + '/' + strings.dasherize(options.name));
+            join(options.path, constants.modelsFolder) :
+            join(options.path, constants.modelsFolder, strings.dasherize(options.name));
         if (options.template === MODEL_OPTION.List) {
             movePath = (options.flat) ?
-                normalize(options.path + constants.modelsFolder) :
-                normalize(options.path + constants.modelsFolder + '/' +
-                    strings.dasherize(strings.pluralize(options.name))
+                join(options.path, constants.modelsFolder) :
+                join(options.path, constants.modelsFolder,strings.dasherize(strings.pluralize(options.name))
                 );
         } else if (options.template === MODEL_OPTION.Selected) {
             movePath = (options.flat) ?
-                normalize(options.path + constants.modelsFolder) :
-                normalize(options.path + constants.modelsFolder + '/' +
-                    strings.dasherize(strings.singularize(options.name))
+                join(options.path, constants.modelsFolder) :
+                join(options.path, constants.modelsFolder, strings.dasherize(strings.singularize(options.name))
                 );
         }
 

@@ -22,11 +22,9 @@ function model(options) {
         setup_1.setupOptions(host, options);
         // defaults
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : core_1.normalize(options.path + constants_1.constants.voFolder + '/' + strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : core_1.join(options.path, constants_1.constants.voFolder, strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
         options.service = (options.service) ? options.service : options.name;
-        options.servicePath = (options.servicePath) ? options.servicePath : core_1.normalize(options.path + constants_1.constants.servicesFolder + '/' + strings_1.strings.dasherize(strings_1.strings.pluralize(options.service)));
-        options.servicePath = options.servicePath.replace('/', '');
+        options.servicePath = (options.servicePath) ? options.servicePath : core_1.join(options.path, constants_1.constants.servicesFolder, strings_1.strings.dasherize(strings_1.strings.pluralize(options.service)));
         options.template = (exports.MODEL_OPTIONS.indexOf(options.template) >= 0) ? options.template : MODEL_OPTION.Blank;
         // no vo or service necessary for blank model
         if (options.template === MODEL_OPTION.Blank) {
@@ -49,19 +47,17 @@ function model(options) {
             spec: options.spec
         };
         let movePath = (options.flat) ?
-            core_1.normalize(options.path + constants_1.constants.modelsFolder) :
-            core_1.normalize(options.path + constants_1.constants.modelsFolder + '/' + strings_1.strings.dasherize(options.name));
+            core_1.join(options.path, constants_1.constants.modelsFolder) :
+            core_1.join(options.path, constants_1.constants.modelsFolder, strings_1.strings.dasherize(options.name));
         if (options.template === MODEL_OPTION.List) {
             movePath = (options.flat) ?
-                core_1.normalize(options.path + constants_1.constants.modelsFolder) :
-                core_1.normalize(options.path + constants_1.constants.modelsFolder + '/' +
-                    strings_1.strings.dasherize(strings_1.strings.pluralize(options.name)));
+                core_1.join(options.path, constants_1.constants.modelsFolder) :
+                core_1.join(options.path, constants_1.constants.modelsFolder, strings_1.strings.dasherize(strings_1.strings.pluralize(options.name)));
         }
         else if (options.template === MODEL_OPTION.Selected) {
             movePath = (options.flat) ?
-                core_1.normalize(options.path + constants_1.constants.modelsFolder) :
-                core_1.normalize(options.path + constants_1.constants.modelsFolder + '/' +
-                    strings_1.strings.dasherize(strings_1.strings.singularize(options.name)));
+                core_1.join(options.path, constants_1.constants.modelsFolder) :
+                core_1.join(options.path, constants_1.constants.modelsFolder, strings_1.strings.dasherize(strings_1.strings.singularize(options.name)));
         }
         // get template source
         const templateSource = schematics_1.apply(schematics_1.url('./files/' + options.template), [

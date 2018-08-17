@@ -8,7 +8,7 @@ import {
     url, move,
     noop, filter, mergeWith, MergeStrategy,
 } from '@angular-devkit/schematics';
-import {normalize} from '@angular-devkit/core';
+import {join} from '@angular-devkit/core';
 import {strings} from '../utils/strings';
 import {Schema as VoOptions} from './schema';
 import {setupOptions} from '../utils/setup';
@@ -24,8 +24,8 @@ export function vo(options: VoOptions): Rule {
         setupOptions(host, options);
 
         const movePath = (options.flat) ?
-            normalize(options.path + constants.voFolder) :
-            normalize(options.path + constants.voFolder + '/' + strings.dasherize(
+            join(options.path, constants.voFolder) :
+            join(options.path, constants.voFolder, strings.dasherize(
                 strings.singularize(options.name)
             ));
         // get template source

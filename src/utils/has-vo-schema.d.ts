@@ -1,3 +1,5 @@
+import {Path} from "@angular-devkit/core";
+
 export interface Schema {
     /**
      * Specifies the vo to be created with this object.  Overrides the default naming.
@@ -6,7 +8,7 @@ export interface Schema {
     /**
      * Specifies the vo path.
      */
-    voPath?: string;
+    voPath?: Path;
     /**
      * Skip vo generation.
      */

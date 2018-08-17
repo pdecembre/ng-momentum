@@ -1,3 +1,5 @@
+import {Path} from "@angular-devkit/core";
+
 export interface Schema {
     /**
      * The name of the project.
@@ -6,7 +8,7 @@ export interface Schema {
     /**
      * The path to create the interface.
      */
-    path: string;
+    path: Path;
     /**
      * Specifies the name.
      */

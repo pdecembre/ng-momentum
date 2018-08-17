@@ -19,7 +19,7 @@ const module_utils_1 = require("../utils/module-utils");
  */
 function buildProperties(options, voOptions, templateOptions) {
     return (host) => {
-        const observer = new Observable_1.Observable((observer) => {
+        return new Observable_1.Observable((observer) => {
             fetch(options.url)
                 .then(res => res.json())
                 .then(data => {
@@ -48,7 +48,6 @@ function buildProperties(options, voOptions, templateOptions) {
                 observer.error(err);
             });
         });
-        return observer;
     };
 }
 /**
@@ -104,18 +103,15 @@ function crud(options) {
             defaultOptions.ui = projectUiFramework;
         }
         options.vo = (options.vo) ? options.vo : options.name;
-        options.voPath = (options.voPath) ? options.voPath : core_1.normalize(options.path + constants_1.constants.voFolder + '/' + strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
-        options.voPath = options.voPath.replace('/', '');
+        options.voPath = (options.voPath) ? options.voPath : core_1.join(options.path, constants_1.constants.voFolder, strings_1.strings.dasherize(strings_1.strings.singularize(options.vo)));
         options.service = (options.service) ? options.service : options.name;
-        options.servicePath = (options.servicePath) ? options.servicePath : core_1.normalize(options.path + constants_1.constants.servicesFolder + '/' + strings_1.strings.dasherize(strings_1.strings.pluralize(options.service)));
-        options.servicePath = options.servicePath.replace('/', '');
+        options.servicePath = (options.servicePath) ? options.servicePath : core_1.join(options.path, constants_1.constants.servicesFolder, strings_1.strings.dasherize(strings_1.strings.pluralize(options.service)));
         options.view = (options.view) ? options.view : options.name;
-        options.viewPath = (options.viewPath) ? options.viewPath : core_1.normalize(options.path + constants_1.constants.viewsFolder + '/' + strings_1.strings.dasherize(options.view));
-        options.viewPath = options.viewPath.replace('/', '');
-        options.basePath = (options.eager) ? strings_1.strings.dasherize(strings_1.strings.pluralize(options.name)) + '/' : '';
+        options.viewPath = (options.viewPath) ? options.viewPath : core_1.join(options.path, constants_1.constants.viewsFolder, strings_1.strings.dasherize(options.view));
+        options.basePath = (options.eager) ? core_1.normalize(strings_1.strings.dasherize(strings_1.strings.pluralize(options.name))) : core_1.normalize('');
         const movePath = (options.flat) ?
-            core_1.normalize(options.path + constants_1.constants.viewsFolder) :
-            core_1.normalize(options.path + constants_1.constants.viewsFolder + '/' + strings_1.strings.dasherize(options.name));
+            core_1.join(options.path, constants_1.constants.viewsFolder) :
+            core_1.join(options.path, constants_1.constants.viewsFolder, strings_1.strings.dasherize(options.name));
         const voOptions = {
             project: options.project,
             path: options.path,
