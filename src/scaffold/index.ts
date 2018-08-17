@@ -180,6 +180,12 @@ export function scaffold(options: ScaffoldOptions): Rule {
         const project = workspace.projects[options.project];
         const rootPath = project.root as Path;
         const sourcePath = join(project.root as Path, 'src');
+        const appPath = join(sourcePath as Path, 'app');
+
+        context.logger.info(`rootPath Path: ${rootPath}`);
+        context.logger.info(`Source Path: ${sourcePath}`);
+        context.logger.info(`appPath: ${appPath}`);
+        context.logger.info(`options.path: ${options.path}`);
 
         const defaultOptions = {
             styleext: getProjectSelectedStyleExt(host, options.path),
@@ -203,12 +209,12 @@ export function scaffold(options: ScaffoldOptions): Rule {
             addOptionsToAngularJson(),
             addDependenciesToPackageJson(options),
             options.includePwa ? addPWAScriptsToPackageJson() : noop(),
-            overwriteFiles(options.path),
+            overwriteFiles(appPath),
             mergeWith(apply(url('./files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
                 options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
-                move(options.path),
+                move(appPath),
             ]), MergeStrategy.Overwrite),
             mergeWith(apply(url('./src-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
