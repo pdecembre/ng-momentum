@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular-devkit/core");
 exports.constants = {
     voSchematic: 'vo',
-    serviceSchematic: 'svc',
+    serviceSchematic: 'service',
     viewSchematic: 'view',
     previousFolder: '..',
     styleTemplateFileExtension: '.__styleext__',

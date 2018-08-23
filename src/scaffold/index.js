@@ -156,10 +156,6 @@ function scaffold(options) {
         const rootPath = project.root;
         const sourcePath = core_1.join(project.root, 'src');
         const appPath = core_1.join(sourcePath, 'app');
-        context.logger.info(`rootPath Path: ${rootPath}`);
-        context.logger.info(`Source Path: ${sourcePath}`);
-        context.logger.info(`appPath: ${appPath}`);
-        context.logger.info(`options.path: ${options.path}`);
         const defaultOptions = {
             styleext: getProjectSelectedStyleExt(host, options.path),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
