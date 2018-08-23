@@ -1,0 +1,14 @@
+<% if(ui.toString() === 'material'){ %>
+.table-card{
+  margin: 2em;
+}
+
+.table-container{
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+<% } %>

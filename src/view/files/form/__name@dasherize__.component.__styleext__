@@ -1,0 +1,15 @@
+<% if(ui.toString() === 'material'){ %>
+.form-card{
+  margin: 2em;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+
+  * {
+    width: 100%;
+  }
+}
+
+<% } %>

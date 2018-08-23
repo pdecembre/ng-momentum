@@ -1,0 +1,5 @@
+<% if(ui.toString() === 'material'){ %>
+.list-card{
+  margin: 2em;
+}
+<% } %>

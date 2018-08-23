@@ -1,0 +1,11 @@
+<% if(ui.toString() === 'material'){ %>
+.details-card{
+  margin: 2em;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+<% } %>
