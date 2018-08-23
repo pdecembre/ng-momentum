@@ -1,4 +1,4 @@
-import {join, JsonArray, JsonObject, Path, strings} from '@angular-devkit/core';
+import {join, JsonArray, JsonObject, normalize, Path, strings} from '@angular-devkit/core';
 import {
     apply,
     chain,
@@ -155,18 +155,17 @@ function overwriteFiles(path: Path) {
 
 function getProjectSelectedStyleExt(host: Tree, path: Path): string {
     const value = readValueFromAngularJsonBuildProjects(host, 'styles');
-    const srcPath = join(path, constants.previousFolder);
     if (!value || !(Array.isArray(value))) {
         return 'css';
     }
     const list: JsonArray = value;
-    const findPath = srcPath.replace(/\//g, '') + 'styles.';
+    const findPath = join(path, 'styles.');
     let foundStyleExt = 'css';
     list.forEach((obj: JsonObject) => {
-        const val = JSON.stringify(obj).replace(/\//g, '');
+        const val = join(normalize(obj.toString()));
         const index = val.indexOf(findPath);
         if (index >= 0) {
-            foundStyleExt = val.replace(findPath, '').replace(/\"/g, '');
+            foundStyleExt = val.replace(findPath, '');
         }
     });
     return foundStyleExt;
@@ -183,13 +182,10 @@ export function scaffold(options: ScaffoldOptions): Rule {
         const appPath = join(sourcePath as Path, 'app');
 
         const defaultOptions = {
-            styleext: getProjectSelectedStyleExt(host, options.path),
+            styleext: getProjectSelectedStyleExt(host, sourcePath),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
         };
 
-        if (options.style && options.style !== defaultOptions.styleext) {
-            defaultOptions.styleext = options.style;
-        }
         if (options.uiFramework && options.uiFramework !== UI_FRAMEWORK_OPTION.MATERIAL) {
             defaultOptions.ui = options.uiFramework;
         }

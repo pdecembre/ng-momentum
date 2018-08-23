@@ -28,7 +28,6 @@ Detailed description of options.
 
 | Option | Type | Description | Enums | Default |
 | ------ | ---- | ----------- | ----- | ------- |
-| --style  | string | Sets the style format for your application style files. | css, scss | scss |
 | --spec | boolean | Do you want to have the tests generated for you? | true, false | true |
 | --skipScripts | boolean | Do you want to have the additional (helpful) package scripts added for you? | true, false | true |
 | --includePwa | boolean | Include PWA features? | true, false | true |

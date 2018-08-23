@@ -42,8 +42,7 @@ describe('vo', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss',
+                spec: true
             }, appTree);
         });
 
@@ -160,8 +159,7 @@ describe('vo', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss'
+                spec: true
             }, appTree);
         });
 

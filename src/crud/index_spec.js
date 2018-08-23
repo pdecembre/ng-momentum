@@ -21,7 +21,7 @@ describe('crud', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -31,7 +31,6 @@ describe('crud', () => {
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
                 spec: true,
-                style: 'scss'
             }, appTree);
         });
         it('requires required option', () => {
@@ -126,7 +125,7 @@ describe('crud', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -135,8 +134,7 @@ describe('crud', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss'
+                spec: true
             }, appTree);
         });
         it('requires required option', () => {
@@ -230,7 +228,7 @@ describe('crud', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };

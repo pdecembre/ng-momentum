@@ -23,10 +23,6 @@
       "visible": false,
       "default": ""
     },
-    "style": {
-      "description": "The file extension to be used for style files.",
-      "type": "string"
-    },
     "spec": {
       "type": "boolean",
       "description": "Specifies if a spec file is generated.",

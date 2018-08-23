@@ -132,18 +132,17 @@ function overwriteFiles(path) {
 }
 function getProjectSelectedStyleExt(host, path) {
     const value = json_editor_1.readValueFromAngularJsonBuildProjects(host, 'styles');
-    const srcPath = core_1.join(path, constants_1.constants.previousFolder);
     if (!value || !(Array.isArray(value))) {
         return 'css';
     }
     const list = value;
-    const findPath = srcPath.replace(/\//g, '') + 'styles.';
+    const findPath = core_1.join(path, 'styles.');
     let foundStyleExt = 'css';
     list.forEach((obj) => {
-        const val = JSON.stringify(obj).replace(/\//g, '');
+        const val = core_1.join(core_1.normalize(obj.toString()));
         const index = val.indexOf(findPath);
         if (index >= 0) {
-            foundStyleExt = val.replace(findPath, '').replace(/\"/g, '');
+            foundStyleExt = val.replace(findPath, '');
         }
     });
     return foundStyleExt;
@@ -157,12 +156,9 @@ function scaffold(options) {
         const sourcePath = core_1.join(project.root, 'src');
         const appPath = core_1.join(sourcePath, 'app');
         const defaultOptions = {
-            styleext: getProjectSelectedStyleExt(host, options.path),
+            styleext: getProjectSelectedStyleExt(host, sourcePath),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
         };
-        if (options.style && options.style !== defaultOptions.styleext) {
-            defaultOptions.styleext = options.style;
-        }
         if (options.uiFramework && options.uiFramework !== UI_FRAMEWORK_OPTION.MATERIAL) {
             defaultOptions.ui = options.uiFramework;
         }

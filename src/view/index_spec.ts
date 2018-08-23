@@ -32,7 +32,7 @@ describe('view', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -42,8 +42,7 @@ describe('view', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss',
+                spec: true
             }, appTree);
         });
 
@@ -330,7 +329,7 @@ describe('view', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -340,8 +339,7 @@ describe('view', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss',
+                spec: true
             }, appTree);
         });
 
@@ -680,7 +678,7 @@ describe('view', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -690,8 +688,7 @@ describe('view', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss',
+                spec: true
             }, appTree);
             appTree = customRunner.runSchematic('vo', {
                 name: 'custom vo',
@@ -963,7 +960,7 @@ describe('view', () => {
             inlineStyle: false,
             inlineTemplate: false,
             routing: false,
-            style: 'css',
+            style: 'scss',
             skipTests: false,
             skipPackageJson: false,
         };
@@ -973,8 +970,7 @@ describe('view', () => {
             appTree = schematicRunner.runSchematic('workspace', workspaceOptions);
             appTree = schematicRunner.runSchematic('application', appOptions, appTree);
             appTree = customRunner.runSchematic('scaffold', {
-                spec: true,
-                style: 'scss'
+                spec: true
             }, appTree);
         });
 
