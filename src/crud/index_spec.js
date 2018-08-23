@@ -42,7 +42,7 @@ describe('crud', () => {
             const runner = new testing_1.SchematicTestRunner('momentum', collectionPath);
             expect(() => runner.runSchematic('crud', {}, schematics_1.Tree.empty())).toThrow();
         });
-        fit('works', () => {
+        it('works', () => {
             const runner = new testing_1.SchematicTestRunner('momentum', collectionPath);
             const tree = runner.runSchematic('crud', {
                 name: 'test'

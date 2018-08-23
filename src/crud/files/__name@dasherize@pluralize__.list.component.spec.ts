@@ -5,7 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { <%= classify(pluralize(name)) %>ListComponent } from './<%= dasherize(pluralize(name)) %>.list.component';
 import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {
     MatButtonModule,
     MatTableModule,
@@ -35,7 +35,7 @@ describe('<%= classify(pluralize(name)) %>ListComponent', () => {
                 },
             ],
             imports: [
-                <% if(ui.toString() === '"material"'){ %>
+                <% if(ui.toString() === 'material'){ %>
                 MatButtonModule,
                 MatTableModule,
                 MatCardModule,

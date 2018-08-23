@@ -1,4 +1,4 @@
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 <mat-card class="details-card">
     <mat-card-header>
         <mat-card-title i18n="<%= classify(singularize(name)) %> header|<%= classify(singularize(name)) %> name@@<%= camelize(singularize(name)) %>Header"><%= classify(singularize(name)) %> Details</mat-card-title>
@@ -22,7 +22,7 @@
            i18n="destroy button|destroy@@destroyButton">Destroy</a>
     </mat-card-actions>
 </mat-card>
-<% } else if(ui.toString() === '"bootstrap"'){ %>
+<% } else if(ui.toString() === 'bootstrap'){ %>
 <h2 i18n="<%= classify(singularize(name)) %> header|<%= classify(singularize(name)) %> name@@<%= camelize(singularize(name)) %>Header"><%= classify(singularize(name)) %> Details</h2>
 <% parameters.forEach(function(parameter){ %>
 <div>

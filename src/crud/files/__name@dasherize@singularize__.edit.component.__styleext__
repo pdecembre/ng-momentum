@@ -1,4 +1,4 @@
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 .form-card{
   margin: 2em;
 }

@@ -16,7 +16,7 @@ export class <%= classify(pluralize(name)) %>ListComponent implements OnInit {
    * View bound variable.
    */
   list: <%= classify(singularize(vo)) %>[];
-  <% if(ui.toString() === '"material"'){ %>
+  <% if(ui.toString() === 'material'){ %>
   /**
    * Columns to display in the UI.
    */

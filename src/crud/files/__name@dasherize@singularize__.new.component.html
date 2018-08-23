@@ -1,4 +1,4 @@
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 <mat-card class="form-card">
     <mat-card-header>
         <mat-card-title
@@ -36,7 +36,7 @@
         </button>
     </mat-card-actions>
 </mat-card>
-<% } else if(ui.toString() === '"bootstrap"'){ %>
+<% } else if(ui.toString() === 'bootstrap'){ %>
 <h2 i18n="<%= classify(singularize(name)) %> new header|<%= classify(singularize(name)) %> new@@<%= camelize(singularize(name)) %>NewHeader">
     New <%= classify(singularize(name)) %></h2>
 

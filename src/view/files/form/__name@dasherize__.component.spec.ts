@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 
 import {<%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
@@ -22,7 +22,7 @@ describe('<%= classify(name) %>Component', () => {
         TestBed.configureTestingModule({
             declarations: [ <%= classify(name) %>Component ],
             imports: [
-                <% if(ui.toString() === '"material"'){ %>
+                <% if(ui.toString() === 'material'){ %>
                 BrowserAnimationsModule,
                 ReactiveFormsModule,
                 MatInputModule,

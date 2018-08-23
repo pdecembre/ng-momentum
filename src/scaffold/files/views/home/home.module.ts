@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home.component';
 import {HomeGuard} from './home.guard';
 
-<% if(ui.toString() === '"bootstrap"'){ %>
+<% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
 
@@ -24,7 +24,7 @@ const routes: Routes = [
         HomeComponent,
     ],
     imports: [
-        <% if(ui.toString() === '"bootstrap"'){ %>
+        <% if(ui.toString() === 'bootstrap'){ %>
         NgbModule,
         <% } %>
         RouterModule.forChild(routes)

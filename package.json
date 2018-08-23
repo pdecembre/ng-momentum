@@ -1,6 +1,6 @@
 {
   "name": "ng-momentum",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Momentum is an Angular Schematic developed by the Bottle Rocket Web Team to build best-in-class web applications faster.",
   "scripts": {
     "build": "tsc -p tsconfig.json",

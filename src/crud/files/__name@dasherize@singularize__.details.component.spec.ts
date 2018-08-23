@@ -11,7 +11,7 @@ import { <%= classify(singularize(name)) %>Component } from './<%= dasherize(sin
 import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {
     MatButtonModule,
     MatCardModule,
@@ -41,7 +41,7 @@ describe('<%= classify(singularize(name)) %>Component', () => {
       ],
       declarations: [ <%= classify(singularize(name)) %>Component ],
       imports: [
-          <% if(ui.toString() === '"material"'){ %>
+          <% if(ui.toString() === 'material'){ %>
           MatButtonModule,
           MatCardModule,
           MatListModule,

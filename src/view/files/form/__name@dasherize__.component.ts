@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {Validators, FormGroup, FormBuilder} from '@angular/forms';
 <% } %>
 
@@ -18,7 +18,7 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     @Input() selected<%= classify(singularize(vo)) %>: <%= classify(singularize(vo)) %>;
 
-    <% if(ui.toString() === '"material"'){ %>
+    <% if(ui.toString() === 'material'){ %>
     /**
      * Form Group.
      */
@@ -36,11 +36,11 @@ export class <%= classify(name) %>Component implements OnInit {
 
     /**
      * Component constructor and DI injection point.
-     <% if(ui.toString() === '"material"'){ %>
+     <% if(ui.toString() === 'material'){ %>
      * @param {FormBuilder} formBuilder
      <% } %>
      */
-    constructor(<% if(ui.toString() === '"material"'){ %>
+    constructor(<% if(ui.toString() === 'material'){ %>
     private formBuilder: FormBuilder
         <% } %>) { }
 
@@ -50,7 +50,7 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     ngOnInit() {
         this.selected<%= classify(singularize(vo)) %> = new <%= classify(singularize(vo)) %>();
-        <% if(ui.toString() === '"material"'){ %>
+        <% if(ui.toString() === 'material'){ %>
             this.<%= camelize(name) %>Form = this.formBuilder.group({
                 <% parameters.forEach(function(parameter){ %>
                     <%= parameter %>: [this.selected<%= classify(singularize(vo)) %>.<%= parameter %>, Validators.required],

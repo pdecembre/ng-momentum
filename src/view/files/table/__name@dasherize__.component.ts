@@ -15,7 +15,7 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     list: <%= classify(singularize(vo)) %>[];
 
-    <% if(ui.toString() === '"material"'){ %>
+    <% if(ui.toString() === 'material'){ %>
     /**
      * Columns to display in the UI.
      */

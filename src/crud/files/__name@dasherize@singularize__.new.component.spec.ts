@@ -11,7 +11,7 @@ import { New<%= classify(singularize(name)) %>Component } from './<%= dasherize(
 import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
@@ -35,7 +35,7 @@ describe('New<%= classify(singularize(name)) %>Component', () => {
       ],
       declarations: [ New<%= classify(singularize(name)) %>Component ],
       imports: [
-          <% if(ui.toString() === '"material"'){ %>
+          <% if(ui.toString() === 'material'){ %>
           BrowserAnimationsModule,
           ReactiveFormsModule,
           MatButtonModule,

@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {<%= classify(pluralize(name)) %>RoutingModule} from './<%= dasherize(pluralize(name)) %>.routing.module';
 
-<% if(ui.toString() === '"bootstrap"'){ %>
+<% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
 
@@ -17,7 +17,7 @@ import {Edit<%= classify(singularize(name)) %>Component} from './<%= dasherize(s
 import {Edit<%= classify(singularize(name)) %>Guard} from './<%= dasherize(singularize(name)) %>.edit.guard';
 
 import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule,
@@ -38,10 +38,10 @@ import {
   ],
   imports: [
     SharedModule,
-    <% if(ui.toString() === '"bootstrap"'){ %>
+    <% if(ui.toString() === 'bootstrap'){ %>
     NgbModule,
     <% } %>
-    <% if(ui.toString() === '"material"'){ %>
+    <% if(ui.toString() === 'material'){ %>
     MatTableModule,
     MatButtonModule,
     MatCardModule,

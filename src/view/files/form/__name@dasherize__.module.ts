@@ -4,10 +4,10 @@ import {<%= classify(name) %>Component} from './<%= dasherize(name) %>.component
 import {<%= classify(name) %>Guard} from './<%= dasherize(name) %>.guard';
 import {<%= classify(name) %>RoutingModule} from './<%= dasherize(name) %>.routing.module';
 
-<% if(ui.toString() === '"bootstrap"'){ %>
+<% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule,
@@ -23,10 +23,10 @@ import {
     ],
     imports: [
         SharedModule,
-        <% if(ui.toString() === '"bootstrap"'){ %>
+        <% if(ui.toString() === 'bootstrap'){ %>
         NgbModule,
         <% } %>
-        <% if(ui.toString() === '"material"'){ %>
+        <% if(ui.toString() === 'material'){ %>
         MatButtonModule,
         MatCardModule,
         MatFormFieldModule,

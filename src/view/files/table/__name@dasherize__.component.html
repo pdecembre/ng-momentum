@@ -1,4 +1,4 @@
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 <mat-card class="table-card">
     <mat-card-header>
         <mat-card-title i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></mat-card-title>
@@ -19,7 +19,7 @@
         </div>
     </mat-card-content>
 </mat-card>
-<% } else if(ui.toString() === '"bootstrap"'){ %>
+<% } else if(ui.toString() === 'bootstrap'){ %>
 <h2 i18n="<%= classify(pluralize(name)) %> header|<%= classify(pluralize(name)) %> name@@<%= camelize(pluralize(name)) %>Header"><%= classify(pluralize(name)) %></h2>
 
 <table class="table table-responsive">

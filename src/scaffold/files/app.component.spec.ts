@@ -1,7 +1,7 @@
 import {TestBed, async} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
-<% if(ui.toString() === '"material"'){ %>
+<% if(ui.toString() === 'material'){ %>
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
 <% } %>
 
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
                 AppComponent
             ],
             imports: [
-                <% if(ui.toString() === '"material"'){ %>
+                <% if(ui.toString() === 'material'){ %>
                 MatToolbarModule,
                 MatButtonModule,
                 <% } %>
@@ -39,7 +39,7 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        <% if(ui.toString() === '"material"'){ %>
+        <% if(ui.toString() === 'material'){ %>
         expect(compiled.querySelector('mat-toolbar').textContent).toContain('Welcome to app!');
         <% } else { %>
         expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-<% if(ui.toString() === '"bootstrap"'){ %>
+<% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
 
@@ -20,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        <% if(ui.toString() === '"bootstrap"'){ %>
+        <% if(ui.toString() === 'bootstrap'){ %>
         NgbModule,
         <% } %>
         RouterModule.forChild(routes)
