@@ -2,7 +2,7 @@ import {Path, normalize} from "@angular-devkit/core";
 
 export const constants = {
     voSchematic: 'vo',
-    serviceSchematic: 'svc',
+    serviceSchematic: 'service',
     viewSchematic: 'view',
     previousFolder: '..',
     styleTemplateFileExtension: '.__styleext__',

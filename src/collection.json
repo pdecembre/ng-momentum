@@ -9,10 +9,13 @@
         "scaffold"
       ]
     },
-    "svc": {
+    "service": {
       "description": "Creates a full service.",
       "factory": "./service/index#service",
-      "schema": "./service/schema.json"
+      "schema": "./service/schema.json",
+      "aliases": [
+        "svc"
+      ]
     },
     "view": {
       "aliases": [
