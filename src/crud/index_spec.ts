@@ -72,6 +72,14 @@ describe('crud', () => {
             expect(tree.files.indexOf('/projects/bar/src/app/services/tests/tests.service.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/services/tests/tests.service.spec.ts')).toBeGreaterThanOrEqual(0);
 
+            expect(tree.readContent('/projects/bar/src/app/services/tests/tests.service.ts').indexOf(
+                'import { Test } from \'src/app/vos/test/test\';'
+            )).toBeGreaterThanOrEqual(0);
+
+            expect(tree.readContent('/projects/bar/src/app/services/tests/tests.service.spec.ts').indexOf(
+                'import { Test } from \'src/app/vos/test/test\';'
+            )).toBeGreaterThanOrEqual(0);
+
             expect(tree.files.indexOf('/projects/bar/src/app/views/test/test.edit.component.scss')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/views/test/test.edit.component.html')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/views/test/test.edit.component.ts')).toBeGreaterThanOrEqual(0);

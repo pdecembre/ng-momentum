@@ -2,7 +2,7 @@ import {TestBed, inject} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 import { <%= classify(pluralize(name)) %>Service } from './<%= dasherize(pluralize(name)) %>.service';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 
 describe('<%= classify(pluralize(name)) %>Service', () => {
 

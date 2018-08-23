@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import { <%= classify(pluralize(service)) %>Service } from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(pluralize(service)) %>Service } from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 import {Observable} from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import {of} from 'rxjs/internal/observable/of';

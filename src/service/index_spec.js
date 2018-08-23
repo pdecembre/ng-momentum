@@ -50,6 +50,8 @@ describe('service', () => {
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/services/tests/tests.service.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/services/tests/tests.service.spec.ts')).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/services/tests/tests.service.ts').indexOf('import { Test } from \'src/app/vos/test/test\';')).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/services/tests/tests.service.spec.ts').indexOf('import { Test } from \'src/app/vos/test/test\';')).toBeGreaterThanOrEqual(0);
         });
         it('works without tests', () => {
             const runner = new testing_1.SchematicTestRunner('momentum', collectionPath);

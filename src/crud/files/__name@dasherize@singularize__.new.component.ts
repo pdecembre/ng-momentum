@@ -4,8 +4,8 @@ import {Router} from '@angular/router';
 import {Validators, FormGroup, FormBuilder} from '@angular/forms';
 <% } %>
 
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
-import {<%= classify(pluralize(service)) %>Service} from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
+import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 
 @Component({
   templateUrl: './<%= dasherize(singularize(name)) %>.new.component.html',

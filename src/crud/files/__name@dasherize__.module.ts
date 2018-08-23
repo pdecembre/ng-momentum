@@ -16,7 +16,7 @@ import {New<%= classify(singularize(name)) %>Guard} from './<%= dasherize(singul
 import {Edit<%= classify(singularize(name)) %>Component} from './<%= dasherize(singularize(name)) %>.edit.component';
 import {Edit<%= classify(singularize(name)) %>Guard} from './<%= dasherize(singularize(name)) %>.edit.guard';
 
-import {<%= classify(pluralize(service)) %>Service} from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
+import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 <% if(ui.toString() === '"material"'){ %>
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {

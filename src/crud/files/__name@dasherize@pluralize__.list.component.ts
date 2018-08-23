@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 
 @Component({
   templateUrl: './<%= dasherize(pluralize(name)) %>.list.component.html',

@@ -26,6 +26,20 @@ function pluralize(value) {
 function singularize(value) {
     return pluralUtil.singular(value);
 }
+function absolutePath(value) {
+    const index = /[a-z]/i.exec(value).index;
+    if (index >= 1) {
+        return value.substr(index);
+    }
+    return value;
+}
+function absoluteSrcPath(value) {
+    const index = value.indexOf('src');
+    if (index >= 1) {
+        return value.substr(index);
+    }
+    return value;
+}
 exports.strings = {
     classify,
     dasherize,
@@ -34,6 +48,8 @@ exports.strings = {
     decamelize,
     underscore,
     pluralize,
-    singularize
+    singularize,
+    absolutePath,
+    absoluteSrcPath
 };
 //# sourceMappingURL=strings.js.map

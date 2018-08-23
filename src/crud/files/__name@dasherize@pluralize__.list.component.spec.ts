@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 
 import { <%= classify(pluralize(name)) %>ListComponent } from './<%= dasherize(pluralize(name)) %>.list.component';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 
 <% if(ui.toString() === '"material"'){ %>
 import {

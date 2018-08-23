@@ -33,6 +33,22 @@ function singularize(value): string {
     return pluralUtil.singular(value);
 }
 
+function absolutePath(value):string {
+    const index = /[a-z]/i.exec(value).index;
+    if(index >= 1){
+        return value.substr(index);
+    }
+    return value
+}
+
+function absoluteSrcPath(value):string {
+    const index = value.indexOf('src');
+    if(index >= 1){
+        return value.substr(index);
+    }
+    return value
+}
+
 export const strings = {
     classify,
     dasherize,
@@ -41,5 +57,7 @@ export const strings = {
     decamelize,
     underscore,
     pluralize,
-    singularize
+    singularize,
+    absolutePath,
+    absoluteSrcPath
 };

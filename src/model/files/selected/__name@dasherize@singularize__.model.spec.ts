@@ -1,7 +1,7 @@
 import {TestBed, inject} from '@angular/core/testing';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 import {<%= classify(singularize(name)) %>Model} from './<%= dasherize(singularize(name)) %>.model';
-import { <%= classify(pluralize(service)) %>Service } from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
+import { <%= classify(pluralize(service)) %>Service } from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Observable} from 'rxjs/internal/Observable';
 import {of} from 'rxjs/internal/observable/of';

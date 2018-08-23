@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
 
 @Component({
     templateUrl: './<%= dasherize(name) %>.component.html',

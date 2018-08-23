@@ -69,7 +69,6 @@ Detailed description of options.
 | --obj | string | Object string for the value object. (in JSON.stringify format). | | {\"id\":\"number\", \"title\":\"string\"} |
 | --flat | boolean | Flag to indicate if a dir is created. | true, false | false |
 | --spec | boolean | Specifies if a spec file is generated. | true, false | true |
-| --style  | string | Sets the style format for your application style files. | css, scss | scss |
 | --eager | boolean | Flag to determine if the view should be eager loaded vs lazy loaded. | true, false | false |
 | --uiFramework | string | Which ui framework are you intending to use? This sets the default for future view templates. | material, bootstrap, basic | material |
 | --vo | string | Specifies the vo to be created with this object. Overrides the default naming. | | (none) |
@@ -152,7 +151,6 @@ Detailed description of options.
 | --service | string | Specifies the service to be created with this object. Overrides the default naming. | | (none) |
 | --servicePath | string | Specifies the service path. | | (none) |
 | --skipService | boolean | Specifies if we should skip generating service files. | true, false | false |
-| --style  | string | Sets the style format for your application style files. | css, scss | scss |
 | --eager | boolean | Flag to determine if the view should be eager loaded vs lazy loaded. | true, false | false |
 | --uiFramework | string | Which ui framework are you intending to use? This sets the default for future view templates. | material, bootstrap, basic | material |
 | --url | string | Url to get object parameters. |  | (none) |

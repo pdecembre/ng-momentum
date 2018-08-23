@@ -8,8 +8,8 @@ import {Observable} from 'rxjs/internal/Observable';
 import {of} from 'rxjs/internal/observable/of';
 
 import { <%= classify(singularize(name)) %>Component } from './<%= dasherize(singularize(name)) %>.details.component';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
-import {<%= classify(pluralize(service)) %>Service} from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
+import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 
 <% if(ui.toString() === '"material"'){ %>
 import {

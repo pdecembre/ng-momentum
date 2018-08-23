@@ -70,16 +70,9 @@ function view(options) {
         setup_1.setupOptions(host, options);
         // defaults
         const defaultOptions = {
-            styleext: 'css',
+            styleext: json_editor_1.readValueFromJsonFile(host, options.path, 'style'),
             ui: scaffold_1.UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
         };
-        const projectStyle = json_editor_1.readValueFromJsonFile(host, options.path, 'style');
-        if (options.style && options.style !== 'css') {
-            defaultOptions.styleext = options.style;
-        }
-        else if (!options.style && projectStyle) {
-            defaultOptions.styleext = projectStyle;
-        }
         const projectUiFramework = json_editor_1.readValueFromJsonFile(host, options.path, 'uiFramework');
         if (options.uiFramework && options.uiFramework !== scaffold_1.UI_FRAMEWORK_OPTION.MATERIAL) {
             defaultOptions.ui = options.uiFramework;

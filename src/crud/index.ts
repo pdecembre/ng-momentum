@@ -103,15 +103,9 @@ export function crud(options: CrudOptions): Rule {
         setupOptions(host, options);
         // defaults
         const defaultOptions = {
-            styleext: 'css',
+            styleext: readValueFromJsonFile(host, options.path, 'style'),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.toString()
         };
-        const projectStyle = readValueFromJsonFile(host, options.path, 'style');
-        if (options.style && options.style !== 'css') {
-            defaultOptions.styleext = options.style;
-        } else if (!options.style && projectStyle) {
-            defaultOptions.styleext = projectStyle;
-        }
 
         const projectUiFramework = readValueFromJsonFile(host, options.path, 'uiFramework');
         if (options.uiFramework && options.uiFramework !== UI_FRAMEWORK_OPTION.MATERIAL) {

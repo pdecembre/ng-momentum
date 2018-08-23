@@ -2,8 +2,8 @@ import {TestBed, async, inject} from '@angular/core/testing';
 import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
 import {<%= classify(singularize(name)) %>Guard} from './<%= dasherize(singularize(name)) %>.details.guard';
-import { <%= classify(singularize(vo)) %> } from '<%= voPath %>/<%= dasherize(singularize(vo)) %>';
-import {<%= classify(pluralize(service)) %>Service} from '<%= servicePath %>/<%= dasherize(pluralize(service)) %>.service';
+import { <%= classify(singularize(vo)) %> } from '<%= absoluteSrcPath(voPath) %>/<%= dasherize(singularize(vo)) %>';
+import {<%= classify(pluralize(service)) %>Service} from '<%= absoluteSrcPath(servicePath) %>/<%= dasherize(pluralize(service)) %>.service';
 
 describe('<%= classify(singularize(name)) %>Guard', () => {
   beforeEach(() => {

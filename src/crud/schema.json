@@ -39,10 +39,6 @@
       "description": "Url to get object parameters.",
       "type": "string"
     },
-    "style": {
-      "description": "The file extension to be used for style files.",
-      "type": "string"
-    },
     "flat": {
       "type": "boolean",
       "description": "Flag to indicate if a dir is created.",

@@ -16,10 +16,6 @@ export interface Schema extends BaseOptions, HasVoOptions, HasServiceOptions, Ha
      */
     parameters?: array<string>;
     /**
-     * The file extension to be used for style files.
-     */
-    style: string;
-    /**
      * Flag to determine if the view should be eager loaded vs lazy loaded.
      */
     eager?: boolean;
