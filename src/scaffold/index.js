@@ -137,12 +137,12 @@ function getProjectSelectedStyleExt(host, path) {
         return 'css';
     }
     const list = value;
-    const findPath = srcPath + '/styles.';
+    const findPath = srcPath.replace(/\//g, '') + 'styles.';
     let foundStyleExt = 'css';
     list.forEach((obj) => {
-        const val = JSON.stringify(obj);
+        const val = JSON.stringify(obj).replace(/\//g, '');
         const index = val.indexOf(findPath);
-        if (index === 1) {
+        if (index >= 0) {
             foundStyleExt = val.replace(findPath, '').replace(/\"/g, '');
         }
     });
@@ -175,19 +175,19 @@ function scaffold(options) {
             overwriteFiles(appPath),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
-                options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
                 schematics_1.move(appPath),
             ]), schematics_1.MergeStrategy.Overwrite),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./src-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
-                options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
                 schematics_1.move(sourcePath),
             ]), schematics_1.MergeStrategy.Default),
             schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./project-files'), [
                 options.spec ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.specFileExtension)),
-                options.style ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? schematics_1.noop() : schematics_1.filter(path => !path.endsWith(constants_1.constants.styleTemplateFileExtension)),
                 schematics_1.template(templateOptions),
                 schematics_1.move(rootPath),
             ]), schematics_1.MergeStrategy.Default),

@@ -160,12 +160,12 @@ function getProjectSelectedStyleExt(host: Tree, path: Path): string {
         return 'css';
     }
     const list: JsonArray = value;
-    const findPath = srcPath + '/styles.';
+    const findPath = srcPath.replace(/\//g, '') + 'styles.';
     let foundStyleExt = 'css';
     list.forEach((obj: JsonObject) => {
-        const val = JSON.stringify(obj);
+        const val = JSON.stringify(obj).replace(/\//g, '');
         const index = val.indexOf(findPath);
-        if (index === 1) {
+        if (index >= 0) {
             foundStyleExt = val.replace(findPath, '').replace(/\"/g, '');
         }
     });
@@ -186,6 +186,7 @@ export function scaffold(options: ScaffoldOptions): Rule {
             styleext: getProjectSelectedStyleExt(host, options.path),
             ui: UI_FRAMEWORK_OPTION.MATERIAL.valueOf()
         };
+
         if (options.style && options.style !== defaultOptions.styleext) {
             defaultOptions.styleext = options.style;
         }
@@ -207,19 +208,19 @@ export function scaffold(options: ScaffoldOptions): Rule {
             overwriteFiles(appPath),
             mergeWith(apply(url('./files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
-                options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
                 move(appPath),
             ]), MergeStrategy.Overwrite),
             mergeWith(apply(url('./src-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
-                options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
                 move(sourcePath),
             ]), MergeStrategy.Default),
             mergeWith(apply(url('./project-files'), [
                 options.spec ? noop() : filter(path => !path.endsWith(constants.specFileExtension)),
-                options.style ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
+                defaultOptions.styleext ? noop() : filter(path => !path.endsWith(constants.styleTemplateFileExtension)),
                 template(templateOptions),
                 move(rootPath),
             ]), MergeStrategy.Default),

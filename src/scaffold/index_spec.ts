@@ -253,6 +253,77 @@ describe('scaffold', () => {
             ]);
         });
 
+        it('works without style set', () => {
+            const runner = new SchematicTestRunner('momentum', collectionPath);
+            const tree = runner.runSchematic('scaffold', {
+                project: 'bar',
+                spec: true,
+                includePwa: true
+            }, appTree);
+
+            // Listing files
+            expect(tree.files.sort()).toEqual([
+                '/.editorconfig',
+                '/.gitignore',
+                '/README.md',
+                '/angular.json',
+                '/package.json',
+                '/projects/bar-e2e/protractor.conf.js',
+                '/projects/bar-e2e/src/app.e2e-spec.ts',
+                '/projects/bar-e2e/src/app.po.ts',
+                '/projects/bar-e2e/tsconfig.e2e.json',
+                '/projects/bar/.rocket-rc.json',
+                '/projects/bar/browserslist',
+                '/projects/bar/karma.conf.js',
+                '/projects/bar/src/app/app.component.html',
+                '/projects/bar/src/app/app.component.scss',
+                '/projects/bar/src/app/app.component.spec.ts',
+                '/projects/bar/src/app/app.component.ts',
+                '/projects/bar/src/app/app.module.ts',
+                '/projects/bar/src/app/app.routing.module.ts',
+                '/projects/bar/src/app/components/.gitkeep',
+                '/projects/bar/src/app/core/core.module.ts',
+                '/projects/bar/src/app/models/.gitkeep',
+                '/projects/bar/src/app/pipes/.gitkeep',
+                '/projects/bar/src/app/services/.gitkeep',
+                '/projects/bar/src/app/services/push/push.service.spec.ts',
+                '/projects/bar/src/app/services/push/push.service.ts',
+                '/projects/bar/src/app/services/window/window.service.spec.ts',
+                '/projects/bar/src/app/services/window/window.service.ts',
+                '/projects/bar/src/app/shared/shared.module.ts',
+                '/projects/bar/src/app/views/.gitkeep',
+                '/projects/bar/src/app/views/home/home.component.html',
+                '/projects/bar/src/app/views/home/home.component.scss',
+                '/projects/bar/src/app/views/home/home.component.spec.ts',
+                '/projects/bar/src/app/views/home/home.component.ts',
+                '/projects/bar/src/app/views/home/home.guard.spec.ts',
+                '/projects/bar/src/app/views/home/home.guard.ts',
+                '/projects/bar/src/app/views/home/home.module.ts',
+                '/projects/bar/src/app/views/page-not-found/page-not-found.component.html',
+                '/projects/bar/src/app/views/page-not-found/page-not-found.component.scss',
+                '/projects/bar/src/app/views/page-not-found/page-not-found.component.spec.ts',
+                '/projects/bar/src/app/views/page-not-found/page-not-found.component.ts',
+                '/projects/bar/src/app/views/page-not-found/page-not-found.module.ts',
+                '/projects/bar/src/app/vos/.gitkeep',
+                '/projects/bar/src/assets/.gitkeep',
+                '/projects/bar/src/environments/environment.prod.ts',
+                '/projects/bar/src/environments/environment.ts',
+                '/projects/bar/src/favicon.ico',
+                '/projects/bar/src/index.html',
+                '/projects/bar/src/locale/messages.en.xlf',
+                '/projects/bar/src/main.ts',
+                '/projects/bar/src/messages.xlf',
+                '/projects/bar/src/polyfills.ts',
+                '/projects/bar/src/styles.scss',
+                '/projects/bar/src/test.ts',
+                '/projects/bar/tsconfig.app.json',
+                '/projects/bar/tsconfig.spec.json',
+                '/projects/bar/tslint.json',
+                '/tsconfig.json',
+                '/tslint.json',
+            ]);
+        });
+
     });
 
     describe('without project', () => {
