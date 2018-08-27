@@ -77,7 +77,7 @@ export function readValueFromJsonFile(tree: Tree, path: string, key: string): st
     if (!node) {
         return null;
     } else {
-        return JSON.stringify(node.value).replace(/\"/g, '');
+        return node.value.toString();
     }
 }
 
