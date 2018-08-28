@@ -3,7 +3,6 @@ import {SharedModule} from 'src/app/shared/shared.module';
 import {<%= classify(name) %>Component} from './<%= dasherize(name) %>.component';
 import {<%= classify(name) %>Guard} from './<%= dasherize(name) %>.guard';
 import {<%= classify(name) %>RoutingModule} from './<%= dasherize(name) %>.routing.module';
-
 <% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
@@ -11,7 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {
     MatCardModule,
     MatListModule
-} from "@angular/material";
+} from '@angular/material';
 <% } %>
 
 @NgModule({
@@ -20,14 +19,10 @@ import {
     ],
     imports: [
         SharedModule,
-        <% if(ui.toString() === 'bootstrap'){ %>
-        NgbModule,
-        <% } %>
-        <% if(ui.toString() === 'material'){ %>
-        MatCardModule,
+        <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+        <% } %><% if(ui.toString() === 'material'){ %>MatCardModule,
         MatListModule,
-        <% } %>
-        <%= classify(name) %>RoutingModule,
+        <% } %><%= classify(name) %>RoutingModule,
     ],
     providers: [<%= classify(name) %>Guard]
 })

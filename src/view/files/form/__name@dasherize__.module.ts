@@ -3,7 +3,6 @@ import {SharedModule} from 'src/app/shared/shared.module';
 import {<%= classify(name) %>Component} from './<%= dasherize(name) %>.component';
 import {<%= classify(name) %>Guard} from './<%= dasherize(name) %>.guard';
 import {<%= classify(name) %>RoutingModule} from './<%= dasherize(name) %>.routing.module';
-
 <% if(ui.toString() === 'bootstrap'){ %>
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 <% } %>
@@ -14,7 +13,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule
-} from "@angular/material";
+} from '@angular/material';
 <% } %>
 
 @NgModule({
@@ -23,18 +22,14 @@ import {
     ],
     imports: [
         SharedModule,
-        <% if(ui.toString() === 'bootstrap'){ %>
-        NgbModule,
-        <% } %>
-        <% if(ui.toString() === 'material'){ %>
-        MatButtonModule,
+        <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+        <% } %><% if(ui.toString() === 'material'){ %>MatButtonModule,
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,
-        <% } %>
-        <%= classify(name) %>RoutingModule
+        <% } %><%= classify(name) %>RoutingModule
     ],
     providers: [<%= classify(name) %>Guard]
 })

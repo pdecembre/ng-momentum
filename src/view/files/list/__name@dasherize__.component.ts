@@ -26,7 +26,7 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     ngOnInit() {
         this.list = [];
-        for(let i:number=0, n:number=10;i<n;i++){
+        for (let i = 0, n = 10; i < n; i++) {
             this.list.push(new <%= classify(singularize(vo)) %>());
         }
     }

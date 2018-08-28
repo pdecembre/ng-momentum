@@ -56,9 +56,9 @@ export class PushService {
     /**
      * Push endpoint url.
      */
-    private _uri: string = '';
+    private _uri = '';
 
-    private _endpoint: string = '/webpush';
+    private _endpoint = '/webpush';
 
     /**
      * Component constructor and DI injection point.
@@ -116,7 +116,7 @@ export class PushService {
         const url = `${this._uri}${this._endpoint}`;
         console.log('[Push Service] Deleting subscriber');
 
-        let body = {
+        const body = {
             action: 'unsubscribe',
             subscription: subscription
         };

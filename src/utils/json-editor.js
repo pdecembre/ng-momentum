@@ -72,7 +72,7 @@ function readValueFromJsonFile(tree, path, key) {
         return null;
     }
     else {
-        return JSON.stringify(node.value).replace(/\"/g, '');
+        return node.value.toString();
     }
 }
 exports.readValueFromJsonFile = readValueFromJsonFile;

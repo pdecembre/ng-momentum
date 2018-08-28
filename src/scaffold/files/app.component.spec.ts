@@ -14,11 +14,9 @@ describe('AppComponent', () => {
                 AppComponent
             ],
             imports: [
-                <% if(ui.toString() === 'material'){ %>
-                MatToolbarModule,
+                <% if(ui.toString() === 'material'){ %>MatToolbarModule,
                 MatButtonModule,
-                <% } %>
-                RouterTestingModule,
+                <% } %>RouterTestingModule,
             ]
         }).compileComponents();
     }));
@@ -39,10 +37,7 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        <% if(ui.toString() === 'material'){ %>
-        expect(compiled.querySelector('mat-toolbar').textContent).toContain('Welcome to app!');
-        <% } else { %>
-        expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+        <% if(ui.toString() === 'material'){ %>expect(compiled.querySelector('mat-toolbar').textContent).toContain('Welcome to app!');<% } else { %>expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
         <% } %>
     }));
 

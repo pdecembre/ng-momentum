@@ -15,13 +15,12 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     list: <%= classify(singularize(vo)) %>[];
 
-    <% if(ui.toString() === 'material'){ %>
+<% if(ui.toString() === 'material'){ %>
     /**
      * Columns to display in the UI.
      */
-    columnsToDisplay: string[] = [<% parameters.forEach(function(parameter){ %>'<%= parameter %>',<% }) %>];
-    <% } %>
-
+    columnsToDisplay: string[] = [<% parameters.forEach(function(parameter){ %>'<%= parameter %>', <% }) %>];
+<% } %>
     /**
      * Component constructor and DI injection point.
      */
@@ -33,7 +32,7 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     ngOnInit() {
         this.list = [];
-        for(let i:number=0, n:number=10;i<n;i++){
+        for (let i = 0, n = 10; i < n; i++) {
             this.list.push(new <%= classify(singularize(vo)) %>());
         }
     }

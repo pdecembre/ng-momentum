@@ -13,7 +13,7 @@ describe('<%= classify(pluralize(name)) %>ListGuard', () => {
         return Promise.resolve([new <%= classify(singularize(vo)) %>()]);
       }
     };
-  	// set testbed
+    // set testbed
     TestBed.configureTestingModule({
       providers: [<%= classify(pluralize(name)) %>ListGuard,
         {provide: <%= classify(pluralize(service)) %>Service, useValue: serviceStub}]

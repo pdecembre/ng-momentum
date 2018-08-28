@@ -19,12 +19,16 @@ describe('<%= classify(singularize(name)) %>Model', () => {
     });
   });
 
-  it('is created', inject([<%= classify(singularize(name)) %>Model], (model: <%= classify(singularize(name)) %>Model) => {
+  it('is created', inject(
+      [<%= classify(singularize(name)) %>Model], 
+      (model: <%= classify(singularize(name)) %>Model) => {
     expect(model).toBeTruthy();
   }));
 
   describe('show', () => {
-    it('requests one', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('requests one', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spy = spyOn(service, 'show').and.returnValue(of(item));
       model.selected = item;
       model.load().subscribe((results:<%= classify(singularize(vo)) %>) => {
@@ -34,7 +38,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
       });
     }));
 
-    it('needs selected set', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('needs selected set', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spy = spyOn(service, 'show').and.returnValue(of(item));
       //model.selected = item;
       model.load().subscribe(() => {}, (err) => {
@@ -46,7 +52,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
   });
 
   describe('save', () => {
-    it('create', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('create', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spyCreate = spyOn(service, 'create').and.returnValue(of(item));
       const spyUpdate = spyOn(service, 'update').and.returnValue(of(item));
       model.selected = itemCreate;
@@ -58,7 +66,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
       });
     }));
 
-    it('update', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('update', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spyCreate = spyOn(service, 'create').and.returnValue(of(item));
       const spyUpdate = spyOn(service, 'update').and.returnValue(of(item));
       model.selected = item;
@@ -70,7 +80,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
       });
     }));
 
-    it('needs selected set', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('needs selected set', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spyCreate = spyOn(service, 'create').and.returnValue(of(item));
       const spyUpdate = spyOn(service, 'update').and.returnValue(of(item));
       //model.selected = item;
@@ -84,7 +96,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
   });
 
   describe('destroy', () => {
-    it('destroys one', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('destroys one', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spy = spyOn(service, 'destroy').and.returnValue(of(null));
       model.selected = item;
       model.destroy().subscribe((results:any) => {
@@ -94,7 +108,9 @@ describe('<%= classify(singularize(name)) %>Model', () => {
       });
     }));
 
-    it('needs selected set', inject([<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
+    it('needs selected set', inject(
+        [<%= classify(singularize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(singularize(name)) %>Model, service: <%= classify(pluralize(service)) %>Service) => {
       const spy = spyOn(service, 'destroy').and.returnValue(of(item));
       //model.selected = item;
       model.destroy().subscribe(() => {}, (err) => {

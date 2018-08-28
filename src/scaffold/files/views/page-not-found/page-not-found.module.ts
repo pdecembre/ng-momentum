@@ -20,10 +20,8 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        <% if(ui.toString() === 'bootstrap'){ %>
-        NgbModule,
-        <% } %>
-        RouterModule.forChild(routes)
+        <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+        <% } %>RouterModule.forChild(routes)
     ],
     declarations: [PageNotFoundComponent],
     exports: [RouterModule],

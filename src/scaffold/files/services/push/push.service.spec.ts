@@ -17,7 +17,9 @@ describe('PushService', () => {
         });
     });
 
-    it('is created', inject([PushService, HttpTestingController, WindowService], (service: PushService, httpMock: HttpTestingController, windowService: WindowService) => {
+    it('is created', inject(
+      [PushService, HttpTestingController, WindowService],
+      (service: PushService, httpMock: HttpTestingController, windowService: WindowService) => {
         expect(service).toBeTruthy();
     }));
 

@@ -27,7 +27,9 @@ describe('<%= classify(pluralize(name)) %>Model', () => {
   }));
 
   describe('list', () => {
-    it('requests list', inject([<%= classify(pluralize(name)) %>Model, <%= classify(pluralize(service)) %>Service], (model: <%= classify(pluralize(name)) %>Model, service:<%= classify(pluralize(service)) %>Service) => {
+    it('requests list', inject(
+        [<%= classify(pluralize(name)) %>Model, <%= classify(pluralize(service)) %>Service], 
+        (model: <%= classify(pluralize(name)) %>Model, service:<%= classify(pluralize(service)) %>Service) => {
       const spy = spyOn(service, 'list').and.returnValue(of(list));
       model.load().subscribe((results:<%= classify(singularize(vo)) %>[]) => {
         expect(results).toEqual(list);

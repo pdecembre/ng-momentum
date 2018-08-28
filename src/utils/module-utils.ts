@@ -50,7 +50,10 @@ export function addRouteToAppRoutingModule(host: Tree, options: HasImportOptions
             const nodeList = findNodes(node, ts.SyntaxKind.VariableDeclaration);
             const openParenthsList = findNodes(nodeList[0], ts.SyntaxKind.OpenBraceToken);
             const start = openParenthsList[0].pos;
-            const content = _buildIndent(4) + JSON.stringify(contentToAdd) + ',';
+            const content = _buildIndent(4) + JSON.stringify(contentToAdd)
+                .replace(/\"/g, "'")
+                .replace(/\:/g, ": ")
+                .replace(/\,/g, ", ") + ',';
             recorder.insertLeft(start, new Buffer(content))
         }
     });

@@ -17,32 +17,24 @@ export class <%= classify(name) %>Component implements OnInit {
      * Input bound variable.
      */
     @Input() selected<%= classify(singularize(vo)) %>: <%= classify(singularize(vo)) %>;
-
-    <% if(ui.toString() === 'material'){ %>
+<% if(ui.toString() === 'material'){ %>
     /**
      * Form Group.
      */
     <%= camelize(name) %>Form: FormGroup;
-
-    <% parameters.forEach(function(parameter){ %>
+<% parameters.forEach(function(parameter){ %>
     /**
      * <%= parameter %> form field.
      */
     get <%= parameter %>() {
         return this.<%= camelize(name) %>Form.get('<%= parameter %>');
     }
-    <% }) %>
-    <% } %>
-
+<% }) %><% } %>
     /**
      * Component constructor and DI injection point.
-     <% if(ui.toString() === 'material'){ %>
-     * @param {FormBuilder} formBuilder
-     <% } %>
+     <% if(ui.toString() === 'material'){ %>* @param {FormBuilder} formBuilder<% } %>
      */
-    constructor(<% if(ui.toString() === 'material'){ %>
-    private formBuilder: FormBuilder
-        <% } %>) { }
+    constructor(<% if(ui.toString() === 'material'){ %>private formBuilder: FormBuilder<% } %>) { }
 
     /**
      * Called part of the component lifecycle. Best first
@@ -50,13 +42,11 @@ export class <%= classify(name) %>Component implements OnInit {
      */
     ngOnInit() {
         this.selected<%= classify(singularize(vo)) %> = new <%= classify(singularize(vo)) %>();
-        <% if(ui.toString() === 'material'){ %>
-            this.<%= camelize(name) %>Form = this.formBuilder.group({
-                <% parameters.forEach(function(parameter){ %>
-                    <%= parameter %>: [this.selected<%= classify(singularize(vo)) %>.<%= parameter %>, Validators.required],
-                    <% }) %>
+<% if(ui.toString() === 'material'){ %>
+        this.<%= camelize(name) %>Form = this.formBuilder.group({<% parameters.forEach(function(parameter){ %>
+            <%= parameter %>: [this.selected<%= classify(singularize(vo)) %>.<%= parameter %>, Validators.required],<% }) %>
         });
-        <% } %>
+<% } %>
     }
 
     /**

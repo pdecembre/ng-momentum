@@ -30,8 +30,8 @@ describe('Edit<%= classify(singularize(name)) %>Component', () => {
   let spy;
 
   beforeEach(async(() => {
-  	const item = new <%= classify(singularize(vo)) %>();
-	item.id = 1;
+    const item = new <%= classify(singularize(vo)) %>();
+    item.id = 1;
     TestBed.configureTestingModule({
       providers: [
         {
@@ -43,14 +43,12 @@ describe('Edit<%= classify(singularize(name)) %>Component', () => {
       ],
       declarations: [ Edit<%= classify(singularize(name)) %>Component ],
       imports: [
-          <% if(ui.toString() === 'material'){ %>
-          BrowserAnimationsModule,
+          <% if(ui.toString() === 'material'){ %>BrowserAnimationsModule,
           ReactiveFormsModule,
           MatButtonModule,
           MatCardModule,
           MatFormFieldModule,
-          MatInputModule,
-          <% } %>
+          MatInputModule,<% } %>
           FormsModule,
           RouterTestingModule,
           HttpClientTestingModule

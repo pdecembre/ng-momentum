@@ -41,11 +41,9 @@ describe('<%= classify(singularize(name)) %>Component', () => {
       ],
       declarations: [ <%= classify(singularize(name)) %>Component ],
       imports: [
-          <% if(ui.toString() === 'material'){ %>
-          MatButtonModule,
+          <% if(ui.toString() === 'material'){ %>MatButtonModule,
           MatCardModule,
-          MatListModule,
-          <% } %>
+          MatListModule,<% } %>
           RouterTestingModule,
           HttpClientTestingModule
       ]

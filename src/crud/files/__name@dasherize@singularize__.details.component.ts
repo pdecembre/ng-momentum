@@ -40,7 +40,7 @@ export class <%= classify(singularize(name)) %>Component implements OnInit {
    * Responds to the destroy request.
    */
   onDestroy() {
-  	const router = this.router;
+    const router = this.router;
     this.service.destroy(this.selected<%= classify(singularize(vo)) %>.id).subscribe(
       function (result) {
         router.navigate(['/<%= dasherize(name) %>']);

@@ -14,10 +14,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ],
     imports: [
         SharedModule,
-        <% if(ui.toString() === 'bootstrap'){ %>
-        NgbModule,
-        <% } %>
-        <%= classify(name) %>RoutingModule
+        <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+        <% } %><%= classify(name) %>RoutingModule
     ],
     providers: [<%= classify(name) %>Guard]
 })

@@ -22,14 +22,12 @@ describe('<%= classify(name) %>Component', () => {
         TestBed.configureTestingModule({
             declarations: [ <%= classify(name) %>Component ],
             imports: [
-                <% if(ui.toString() === 'material'){ %>
-                BrowserAnimationsModule,
+                <% if(ui.toString() === 'material'){ %>BrowserAnimationsModule,
                 ReactiveFormsModule,
                 MatInputModule,
                 MatFormFieldModule,
                 MatButtonModule,
-                MatCardModule,
-                <% } %>
+                MatCardModule,<% } %>
                 FormsModule
             ],
         })

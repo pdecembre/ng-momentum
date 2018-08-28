@@ -17,10 +17,8 @@ describe('<%= classify(name) %>Component', () => {
         TestBed.configureTestingModule({
             declarations: [ <%= classify(name) %>Component ],
             imports: [
-                <% if(ui.toString() === 'material'){ %>
-                MatListModule,
-                MatCardModule
-                <% } %>
+                <% if(ui.toString() === 'material'){ %>MatListModule,
+                MatCardModule<% } %>
             ]
         })
             .compileComponents();

@@ -24,10 +24,8 @@ const routes: Routes = [
         HomeComponent,
     ],
     imports: [
-        <% if(ui.toString() === 'bootstrap'){ %>
-        NgbModule,
-        <% } %>
-        RouterModule.forChild(routes)
+        <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+        <% } %>RouterModule.forChild(routes)
     ],
     exports: [RouterModule],
     providers: [HomeGuard]

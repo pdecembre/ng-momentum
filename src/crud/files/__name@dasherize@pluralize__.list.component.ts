@@ -16,12 +16,12 @@ export class <%= classify(pluralize(name)) %>ListComponent implements OnInit {
    * View bound variable.
    */
   list: <%= classify(singularize(vo)) %>[];
-  <% if(ui.toString() === 'material'){ %>
+<% if(ui.toString() === 'material'){ %>
   /**
    * Columns to display in the UI.
    */
-  columnsToDisplay: string[] = [<% parameters.forEach(function(parameter){ %>'<%= parameter %>',<% }) %> 'action'];
-  <% } %>
+  columnsToDisplay: string[] = [<% parameters.forEach(function(parameter){ %>'<%= parameter %>', <% }) %> 'action'];
+<% } %>
   /**
    * Component constructor and DI injection point.
    * @param {ActivatedRoute} route

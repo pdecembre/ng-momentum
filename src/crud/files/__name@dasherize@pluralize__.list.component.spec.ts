@@ -35,12 +35,10 @@ describe('<%= classify(pluralize(name)) %>ListComponent', () => {
                 },
             ],
             imports: [
-                <% if(ui.toString() === 'material'){ %>
-                MatButtonModule,
+                <% if(ui.toString() === 'material'){ %>MatButtonModule,
                 MatTableModule,
                 MatCardModule,
-                <% } %>
-                RouterTestingModule
+                <% } %>RouterTestingModule
             ],
             declarations: [ <%= classify(pluralize(name)) %>ListComponent ]
         }).compileComponents();

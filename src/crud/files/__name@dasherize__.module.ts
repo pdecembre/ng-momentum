@@ -38,19 +38,15 @@ import {
   ],
   imports: [
     SharedModule,
-    <% if(ui.toString() === 'bootstrap'){ %>
-    NgbModule,
-    <% } %>
-    <% if(ui.toString() === 'material'){ %>
-    MatTableModule,
+    <% if(ui.toString() === 'bootstrap'){ %>NgbModule,
+    <% } %><% if(ui.toString() === 'material'){ %>MatTableModule,
     MatButtonModule,
     MatCardModule,
     MatListModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    <% } %>
+    MatInputModule,<% } %>
     <%= classify(pluralize(name)) %>RoutingModule
   ],
   providers: [
