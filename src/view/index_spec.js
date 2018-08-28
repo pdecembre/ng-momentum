@@ -46,7 +46,7 @@ describe('view', () => {
                 name: 'test'
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBe(-1);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -66,7 +66,7 @@ describe('view', () => {
                 spec: false
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBe(-1);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -86,7 +86,7 @@ describe('view', () => {
                 template: 'details'
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBeGreaterThanOrEqual(0);
@@ -107,7 +107,7 @@ describe('view', () => {
                 spec: false
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -127,7 +127,7 @@ describe('view', () => {
                 template: 'form'
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBeGreaterThanOrEqual(0);
@@ -148,7 +148,7 @@ describe('view', () => {
                 spec: false
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -168,7 +168,7 @@ describe('view', () => {
                 template: 'list'
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBeGreaterThanOrEqual(0);
@@ -189,7 +189,7 @@ describe('view', () => {
                 spec: false
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -209,7 +209,7 @@ describe('view', () => {
                 template: 'table'
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBeGreaterThanOrEqual(0);
@@ -230,7 +230,7 @@ describe('view', () => {
                 spec: false
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBeGreaterThanOrEqual(0);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.spec.ts')).toBe(-1);
@@ -278,7 +278,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             //console.debug(tree.readContent('/projects/bar/src/app/core/core.module.ts'));
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
@@ -301,7 +301,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBe(-1);
@@ -323,7 +323,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -346,7 +346,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -368,7 +368,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -391,7 +391,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -413,7 +413,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -436,7 +436,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -458,7 +458,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);
@@ -481,7 +481,7 @@ describe('view', () => {
                 eager: true
             }, appTree);
             // has lazy loaded content
-            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{\"path\":\"test\",\"loadChildren\":\"../app/views/test/test.module#TestModule\"},")).toBe(-1);
+            expect(tree.readContent('/projects/bar/src/app/app.routing.module.ts').indexOf("{'path': 'test', 'loadChildren': '../app/views/test/test.module#TestModule'},")).toBe(-1);
             expect(tree.readContent('/projects/bar/src/app/core/core.module.ts').indexOf("import { TestModule } from '../test/test.module';")).toBeGreaterThanOrEqual(0);
             // Listing files
             expect(tree.files.indexOf('/projects/bar/src/app/vos/test/test.ts')).toBeGreaterThanOrEqual(0);

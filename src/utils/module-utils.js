@@ -53,7 +53,6 @@ function addRouteToAppRoutingModule(host, options) {
                 .replace(/\"/g, "'")
                 .replace(/\:/g, ": ")
                 .replace(/\,/g, ", ") + ',';
-            console.log(content);
             recorder.insertLeft(start, new Buffer(content));
         }
     });
